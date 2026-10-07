@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Morning Crumb Bakery &amp; Café | Kensington, Toronto</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FCE7EC;--bg2:#F8D6DE;--card:#FFFFFF;--text:#3B2416;--muted:#7A5A48;--butter:#F6C344;--berry:#C2185B;--mint:#9ED9C4;--line:#EDC3CE;
+--disp:"DM Serif Display",Georgia,serif;--body:"Nunito","Segoe UI",Roboto,Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:1.0625rem/1.6 var(--body);padding-bottom:5rem}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.02;margin:0}
+p{margin:0 0 1rem}
+:focus-visible{outline:3px solid var(--berry);outline-offset:3px}
+.wrap{max-width:66rem;margin:0 auto;padding:0 1.25rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0}
+.logo{font-family:var(--disp);font-size:1.6rem;color:var(--text);text-decoration:none}
+.logo i{color:var(--berry)}
+.btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--text);color:#FFF6EE;font-weight:800;text-decoration:none;padding:.8rem 1.3rem;border-radius:999px;border:none;cursor:pointer;font-size:1rem;transition:transform .15s}
+.btn:hover{transform:translateY(-2px) rotate(-1deg)}
+.btn.soft{background:var(--butter);color:var(--text)}
+
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;align-items:center;padding:1.5rem 0 3.5rem}
+@media (max-width:800px){.hero{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(3rem,9vw,5.4rem)}
+.hero h1 i{color:var(--berry)}
+.hero p{color:var(--muted);font-size:1.15rem;max-width:30rem;margin-top:1rem}
+.batch{display:inline-flex;align-items:center;gap:.75rem;background:var(--card);border-radius:18px;padding:.75rem 1.1rem;margin:.5rem 0 1.5rem;box-shadow:0 8px 24px -12px rgba(194,24,91,.35)}
+.batch b{font:800 1.4rem var(--body);font-variant-numeric:tabular-nums;color:var(--berry)}
+.art{position:relative;max-width:26rem;width:100%;margin:0 auto}
+.steam{animation:rise 3s ease-in-out infinite;opacity:0}
+.steam:nth-of-type(2){animation-delay:1s}.steam:nth-of-type(3){animation-delay:2s}
+@keyframes rise{0%{transform:translateY(20px);opacity:0}30%{opacity:.8}100%{transform:translateY(-40px);opacity:0}}
+.float{animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px) rotate(-3deg)}}
+.sprinkle{animation:twinkle 2s ease-in-out infinite}
+@keyframes twinkle{50%{opacity:.2}}
+
+.marquee{background:var(--berry);color:#FFF0F4;overflow:hidden;white-space:nowrap;padding:.8rem 0;font-family:var(--disp);font-size:1.4rem;font-style:italic}
+.marquee div{display:inline-block;animation:tick 26s linear infinite}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+section{padding:4rem 0}
+h2{font-size:clamp(2.4rem,7vw,3.6rem);margin-bottom:1.25rem}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.tab{background:var(--card);color:var(--text);border:2px solid var(--line);border-radius:999px;padding:.55rem 1.1rem;font:800 1rem var(--body);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--text);color:#FFF6EE;border-color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:1rem}
+.card{perspective:900px;height:13rem;cursor:pointer;background:none;border:none;padding:0;font:inherit;color:inherit;animation:pop .4s ease both}
+@keyframes pop{from{opacity:0;transform:translateY(14px)}}
+.inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.card.flip .inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;padding:1.2rem;display:flex;flex-direction:column;justify-content:space-between;text-align:left}
+.front{background:var(--card);box-shadow:0 10px 30px -18px rgba(59,36,22,.5)}
+.front .emo{font-size:3rem;line-height:1}
+.front h3{font-size:1.45rem}
+.front .pr{font-weight:800;color:var(--berry)}
+.back{background:var(--butter);transform:rotateY(180deg)}
+.back p{margin:0}
+.hint{color:var(--muted);font-size:.9rem;margin-top:-.5rem;margin-bottom:1.25rem}
+
+.cake{background:var(--bg2)}
+.cakeform{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1rem;align-items:end}
+label{display:grid;gap:.35rem;font-weight:800}
+select,input{font:inherit;padding:.75rem .9rem;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--text)}
+.done{margin-top:1.25rem;background:var(--card);border-radius:18px;padding:1.1rem 1.25rem;display:none;border:2px dashed var(--berry)}
+.done.show{display:block;animation:pop .4s ease}
+
+.info{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+@media (max-width:800px){.info{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse}
+td{padding:.55rem .25rem;border-bottom:1px solid var(--line)}
+td:last-child{text-align:right}
+tr.today td{color:var(--berry);font-weight:800}
+footer{padding:2rem 0;color:var(--muted);font-size:.9rem;text-align:center}
+.dock{position:fixed;left:.75rem;right:.75rem;bottom:.75rem;display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;z-index:10;max-width:30rem;margin:0 auto}
+.dock a{background:var(--card);color:var(--text);text-decoration:none;text-align:center;padding:.8rem .5rem;border-radius:16px;font-weight:800;box-shadow:0 10px 30px -10px rgba(59,36,22,.45)}
+.dock a.main{background:var(--berry);color:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><a class="logo" href="#">Morning <i>Crumb</i></a><a class="btn" href="#menu">Menu</a></nav>
+  <header class="hero">
+    <div>
+      <h1>Baked at 5 am.<br><i>Gone by noon.</i></h1>
+      <p>Butter croissants, cardamom buns and proper coffee in the middle of Kensington Market. Come early.</p>
+      <div class="batch">🥐 Next fresh batch in <b id="countdown">--:--:--</b></div>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap"><a class="btn" href="#menu">See today's menu</a><a class="btn soft" href="#cake">Order a cake</a></div>
+    </div>
+    <svg class="art" viewBox="0 0 400 380" aria-hidden="true">
+      <circle cx="200" cy="200" r="160" fill="#F8D6DE"/>
+      <g fill="none" stroke="#B89A88" stroke-width="7" stroke-linecap="round">
+        <path class="steam" d="M150 120 Q135 95 150 70 Q165 45 150 20"/>
+        <path class="steam" d="M195 120 Q180 95 195 70 Q210 45 195 20"/>
+        <path class="steam" d="M240 120 Q225 95 240 70 Q255 45 240 20"/>
+      </g>
+      <path d="M110 140 L290 140 L270 290 Q265 310 245 310 L155 310 Q135 310 130 290Z" fill="#FFFFFF"/>
+      <path d="M290 170 Q340 170 335 215 Q330 255 280 250" fill="none" stroke="#FFFFFF" stroke-width="18"/>
+      <ellipse cx="200" cy="142" rx="90" ry="14" fill="#6B3E26"/>
+      <path d="M150 145 Q200 165 250 145" fill="none" stroke="#C69C6D" stroke-width="5"/>
+      <rect x="120" y="215" width="160" height="18" fill="#F6C344"/>
+      <ellipse cx="200" cy="318" rx="120" ry="16" fill="#EDC3CE"/>
+      <g class="float" style="transform-origin:90px 300px">
+        <path d="M30 300 Q50 250 95 255 Q140 250 160 300 Q140 320 95 318 Q50 320 30 300Z" fill="#E3A548"/>
+        <path d="M60 268 Q72 300 70 316 M95 256 L95 318 M130 268 Q118 300 120 316" stroke="#B9772A" stroke-width="5" fill="none"/>
+      </g>
+      <circle class="sprinkle" cx="320" cy="90" r="6" fill="#C2185B"/>
+      <circle class="sprinkle" cx="70" cy="120" r="5" fill="#9ED9C4" style="animation-delay:.7s"/>
+      <circle class="sprinkle" cx="340" cy="300" r="5" fill="#F6C344" style="animation-delay:1.3s"/>
+    </svg>
+  </header>
+</div>
+
+<div class="marquee" aria-hidden="true"><div>butter croissants ✿ cardamom buns ✿ oat lattes ✿ sourdough Saturdays ✿ birthday cakes ✿ butter croissants ✿ cardamom buns ✿ oat lattes ✿ sourdough Saturdays ✿ birthday cakes ✿&nbsp;</div></div>
+
+<section id="menu">
+  <div class="wrap">
+    <h2>Today's menu</h2>
+    <p class="hint">Tap a card to flip it.</p>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="grid" id="grid" role="tabpanel"></div>
+  </div>
+</section>
+
+<section id="cake" class="cake">
+  <div class="wrap">
+    <h2>Order a cake</h2>
+    <div class="cakeform">
+      <label>Flavour<select id="flav"><option>Vanilla berry</option><option>Double chocolate</option><option>Pistachio rose</option><option>Lemon drizzle</option></select></label>
+      <label>Size<select id="size"><option value="45">6 inch (serves 8), $45</option><option value="65">8 inch (serves 14), $65</option><option value="90">10 inch (serves 22), $90</option></select></label>
+      <label>Writing on top<input id="msg" maxlength="30" placeholder="Happy birthday Sara!"></label>
+      <button class="btn" type="button" id="cakeBtn">Request this cake</button>
+    </div>
+    <div class="done" id="done" role="status"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap info">
+    <div><h2>Hours</h2><table id="hours"></table></div>
+    <div><h2>Visit</h2><p>Augusta Ave, Kensington Market.<br>Seating for 12, plus a sunny patio in summer.</p><a class="btn soft" href="https://www.google.com/maps/search/Augusta+Ave+Toronto" target="_blank" rel="noopener">Get directions</a></div>
+  </div>
+</section>
+
+<footer>Concept design by The Six Raccoon Studio. Morning Crumb is a made-up bakery.</footer>
+<div class="dock"><a href="tel:+10000000000">📞 Call</a><a href="https://www.google.com/maps/search/Augusta+Ave+Toronto" target="_blank" rel="noopener">📍 Map</a><a class="main" href="#cake">🎂 Cake</a></div>
+
+<script>
+const menu={
+ "Pastries":[["🥐","Butter croissant",4.25,"72-hour dough, French butter. Our bestseller."],["🌀","Cardamom bun",4.75,"Swedish style, sticky sugar top."],["🍫","Pain au chocolat",4.95,"Two bars of dark chocolate inside."],["🍓","Berry danish",5.25,"Seasonal berries, vanilla custard."]],
+ "Coffee":[["☕","Latte",5.25,"Ontario-roasted espresso. Oat milk free."],["🧊","Iced brown sugar",5.95,"Espresso, brown sugar, cold milk."],["🍵","Matcha latte",5.75,"Ceremonial grade, lightly sweet."],["🫖","Chai",4.95,"House-brewed, warming spices."]],
+ "Bread":[["🍞","Sourdough loaf",9.00,"Saturdays only. Pre-order to save one."],["🥖","Baguette",4.50,"Crackly crust, baked twice a day."],["🧀","Cheese focaccia",6.50,"Rosemary, sea salt, aged cheddar."]]
+};
+const tabs=document.getElementById('tabs'),grid=document.getElementById('grid');
+function show(cat){
+ tabs.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',t.textContent===cat));
+ grid.innerHTML=menu[cat].map((m,i)=>`<button class="card" type="button" style="animation-delay:${i*70}ms" aria-label="${m[1]}, $${m[2].toFixed(2)}. Tap to flip."><div class="inner"><div class="face front"><span class="emo">${m[0]}</span><div><h3>${m[1]}</h3><span class="pr">$${m[2].toFixed(2)}</span></div></div><div class="face back"><h3>${m[1]}</h3><p>${m[3]}</p></div></div></button>`).join('');
+ grid.querySelectorAll('.card').forEach(c=>c.onclick=()=>c.classList.toggle('flip'));
+}
+Object.keys(menu).forEach(c=>{const b=document.createElement('button');b.className='tab';b.type='button';b.setAttribute('role','tab');b.textContent=c;b.onclick=()=>show(c);tabs.appendChild(b)});
+show("Pastries");
+
+/* Countdown to next batch: 7 am, 11 am, 3 pm */
+const batches=[7,11,15];
+function tick(){
+ const n=new Date();let next=new Date(n);
+ const h=batches.find(b=>b>n.getHours()+n.getMinutes()/60);
+ if(h!==undefined){next.setHours(h,0,0,0)}else{next.setDate(n.getDate()+1);next.setHours(7,0,0,0)}
+ let s=Math.floor((next-n)/1000);const p=x=>String(x).padStart(2,'0');
+ document.getElementById('countdown').textContent=`${p(Math.floor(s/3600))}:${p(Math.floor(s%3600/60))}:${p(s%60)}`;
+}
+tick();setInterval(tick,1000);
+
+document.getElementById('cakeBtn').onclick=()=>{
+ const d=document.getElementById('done'),m=document.getElementById('msg').value.trim();
+ const sz=document.getElementById('size');
+ d.innerHTML=`🎂 <strong>Cake request sent!</strong> ${document.getElementById('flav').value}, ${sz.options[sz.selectedIndex].text}${m?`, with "${m.replace(/</g,'&lt;')}" on top`:''}.<br><small>Demo only: on a real site this goes to the bakery's email or order system.</small>`;
+ d.classList.remove('show');void d.offsetWidth;d.classList.add('show');
+};
+const days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],hours=["8 am to 3 pm","Closed","7 am to 4 pm","7 am to 4 pm","7 am to 4 pm","7 am to 5 pm","7 am to 5 pm"],d=new Date().getDay();
+document.getElementById('hours').innerHTML=days.map((n,i)=>`<tr class="${i===d?'today':''}"><td>${n}${i===d?' (today)':''}</td><td>${hours[i]}</td></tr>`).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Six Raccoon Studio | Websites for Toronto's local businesses</title>
+<meta name="description" content="A small Toronto web studio building websites for restaurants, barbers, cafés and local shops, plus Google setup and monthly care.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦝</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+document.documentElement.classList.add('js');
+(function(){var ok=['midnight','drive','ocean','cafe','bakery','clean'],t=null;
+try{t=new URLSearchParams(location.search).get('theme')}catch(e){}
+if(!t){try{t=localStorage.getItem('sr-theme')}catch(e){}}
+if(t&&ok.indexOf(t)>-1&&t!=='midnight')document.documentElement.setAttribute('data-theme',t);})();
+</script>
+<style>
+:root{
+  --bg:#070B16; --bg2:#0B1122; --card:#111a30; --card2:#17223d;
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --text:#EEF2FA; --muted:#9AA6C2; --dim:#6F7A96;
+  --gold:#E8C26A; --gold2:#FFE3A1; --gold3:#C9963A; --gold-ink:#1A1405;
+  --acc:232,194,106; --ink-rgb:255,255,255; --nav:rgba(7,11,22,.72); --chipbg:rgba(17,26,48,.92);
+  --a1:#8B7CF6; --a2:#1F6FEB; --a3:#E8C26A; --bad:#F59A9A;
+  --cyan:#6EE7F2; --violet:#8B7CF6; --mint:#5EE6A8;
+  --display:"Sora","Segoe UI",Roboto,Arial,sans-serif;
+  --body:"Manrope","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color-scheme:dark;
+}
+
+/* ---------- Colour themes ---------- */
+html[data-theme="drive"]{--bg:#5E0B08;--bg2:#6E0E0A;--card:#86130D;--card2:#9B1A12;--line:rgba(255,255,255,.1);--line2:rgba(255,255,255,.2);--text:#FFF7E8;--muted:#FFD9C9;--dim:#F0B4A0;--gold:#FFC72C;--gold2:#FFE27A;--gold3:#F2A900;--gold-ink:#3A0805;--acc:255,199,44;--nav:rgba(94,11,8,.8);--chipbg:rgba(134,19,13,.94);--a1:#DA291C;--a2:#FF6A00;--a3:#FFC72C;--bad:#FFB4A3;color-scheme:dark}
+html[data-theme="ocean"]{--bg:#04161C;--bg2:#06212A;--card:#0B2C36;--card2:#0F3845;--text:#E8FBFB;--muted:#9CC5C9;--dim:#6E9AA0;--gold:#3DDBC4;--gold2:#9FF5E6;--gold3:#1FA896;--gold-ink:#03201C;--acc:61,219,196;--nav:rgba(4,22,28,.78);--chipbg:rgba(11,44,54,.94);--a1:#1FA896;--a2:#2E6FD8;--a3:#3DDBC4;color-scheme:dark}
+html[data-theme="cafe"]{--bg:#F5EFE4;--bg2:#EDE4D3;--card:#FFFDF8;--card2:#F7F0E3;--line:rgba(40,30,15,.1);--line2:rgba(40,30,15,.2);--text:#2B2117;--muted:#6B5B49;--dim:#8E7D69;--gold:#2F6B4F;--gold2:#4E9A74;--gold3:#1F4E39;--gold-ink:#FFFFFF;--acc:47,107,79;--ink-rgb:40,30,15;--nav:rgba(245,239,228,.85);--chipbg:rgba(255,253,248,.96);--a1:#C9A86A;--a2:#7FB89A;--a3:#E9C9A0;--bad:#B4412F;color-scheme:light}
+html[data-theme="bakery"]{--bg:#FCEFF2;--bg2:#F8E1E7;--card:#FFFFFF;--card2:#FFF5F7;--line:rgba(70,20,40,.1);--line2:rgba(70,20,40,.2);--text:#3A1424;--muted:#7A4A5C;--dim:#9C7383;--gold:#C2185B;--gold2:#E5508A;--gold3:#8E0F43;--gold-ink:#FFFFFF;--acc:194,24,91;--ink-rgb:70,20,40;--nav:rgba(252,239,242,.85);--chipbg:rgba(255,255,255,.96);--a1:#F48FB1;--a2:#FFC4A3;--a3:#E5508A;--bad:#B4412F;color-scheme:light}
+html[data-theme="clean"]{--bg:#F7F8FA;--bg2:#EEF1F5;--card:#FFFFFF;--card2:#F4F6F9;--line:rgba(15,23,42,.08);--line2:rgba(15,23,42,.16);--text:#0F172A;--muted:#475569;--dim:#64748B;--gold:#2F5BFF;--gold2:#6F8CFF;--gold3:#1E3FD1;--gold-ink:#FFFFFF;--acc:47,91,255;--ink-rgb:15,23,42;--nav:rgba(247,248,250,.85);--chipbg:rgba(255,255,255,.96);--a1:#9DB4FF;--a2:#C7D2FE;--a3:#93C5FD;--bad:#C0392B;color-scheme:light}
+html[data-theme="cafe"] .aurora i,html[data-theme="bakery"] .aurora i,html[data-theme="clean"] .aurora i{opacity:.35}
+body,header.nav,.svc,.plan,form.card,.chat,.chip,.btn{transition:background-color .45s,color .45s,border-color .45s}
+
+.theme-wrap{position:relative}
+.theme-btn{display:inline-flex;align-items:center;gap:.5rem;height:2.6rem;padding:0 .8rem 0 .55rem;border-radius:999px;border:1px solid var(--line2);background:rgba(var(--ink-rgb),.04);color:var(--text);font:700 .9rem var(--body);cursor:pointer}
+.theme-btn:hover{border-color:var(--gold)}
+.sw{width:1.5rem;height:1.5rem;border-radius:50%;flex:none;background:conic-gradient(var(--sw-a) 0 50%,var(--sw-b) 50% 100%);box-shadow:inset 0 0 0 2px rgba(255,255,255,.35),0 0 0 1px rgba(0,0,0,.25)}
+.theme-btn .sw{--sw-a:var(--gold);--sw-b:var(--bg)}
+.theme-pop{position:absolute;right:0;top:calc(100% + .6rem);width:17rem;background:var(--card);border:1px solid var(--line2);border-radius:20px;padding:1rem;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .2s,transform .2s;z-index:50}
+.theme-pop.open{opacity:1;transform:none;pointer-events:auto}
+.theme-pop h4{margin:0;font:700 1rem var(--display)}
+.theme-pop p{margin:.25rem 0 .8rem;color:var(--muted);font-size:.85rem;line-height:1.45}
+.theme-list{display:grid;grid-template-columns:1fr 1fr;gap:.45rem}
+.theme-list button{display:flex;align-items:center;gap:.55rem;padding:.55rem .6rem;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--text);font:600 .88rem var(--body);cursor:pointer;text-align:left}
+.theme-list button:hover{border-color:var(--line2)}
+.theme-list button[aria-pressed="true"]{border-color:var(--gold);background:rgba(var(--acc),.1)}
+.theme-list .sw{width:1.3rem;height:1.3rem}
+.cta-short{display:none}
+@media (max-width:640px){.theme-btn span.t{display:none}.theme-btn{padding:0 .5rem}}
+@media (max-width:440px){.cta-long{display:none}.cta-short{display:inline}.brand b{font-size:.8rem;letter-spacing:.06em}header.nav .btn{padding:.6rem .85rem;font-size:.8rem}.theme-btn{height:2.4rem}}
+@media (max-width:360px){.brand>span:last-child{display:none}}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;background:var(--bg);color:var(--text);font:1.0625rem/1.65 var(--body);overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;letter-spacing:-.02em}
+h2{font-size:clamp(2.1rem,5.2vw,3.4rem);font-weight:700;margin-bottom:1rem}
+h3{font-size:1.2rem;font-weight:600;margin-bottom:.4rem;letter-spacing:-.01em}
+p{margin:0 0 1rem}
+.wrap{max-width:74rem;margin:0 auto;padding:0 1.25rem}
+.lede{max-width:38rem;color:var(--muted);font-size:1.12rem}
+section{padding:6rem 0;position:relative}
+.eyebrow{display:block;font:700 .95rem var(--body);color:var(--gold);margin-bottom:.6rem}
+.gold{background:linear-gradient(100deg,var(--gold2),var(--gold) 45%,var(--gold3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+.aurora{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.aurora i{position:absolute;width:52vmax;height:52vmax;border-radius:50%;filter:blur(120px);opacity:.12;animation:drift 26s ease-in-out infinite alternate}
+.aurora i:nth-child(1){background:var(--a1);top:-22vmax;left:-14vmax}
+.aurora i:nth-child(2){background:var(--a2);top:30%;right:-24vmax;animation-delay:-9s;opacity:.16}
+.aurora i:nth-child(3){background:var(--a3);bottom:-30vmax;left:30%;animation-delay:-15s;opacity:.09}
+@keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;background-image:radial-gradient(rgba(var(--ink-rgb),.035) 1px,transparent 1px);background-size:3px 3px}
+
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:700 1rem var(--body);padding:.9rem 1.5rem;border-radius:999px;text-decoration:none;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold) 55%,var(--gold3));color:var(--gold-ink);box-shadow:0 10px 30px -10px rgba(var(--acc),.7),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(var(--acc),.9),inset 0 1px 0 rgba(255,255,255,.5)}
+.btn-ghost{background:rgba(var(--ink-rgb),.04);color:var(--text);border:1px solid var(--line2)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold2)}
+
+header.nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:var(--nav);border-bottom:1px solid var(--line)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.5rem}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--text)}
+.brand .mark{width:2.4rem;height:2.4rem;border-radius:12px;background:linear-gradient(135deg,var(--card2),var(--card));border:1px solid var(--line2);display:grid;place-items:center}
+.brand .mark svg{width:1.8rem;height:1.8rem}
+.brand b{font:800 .95rem/1 var(--display);letter-spacing:.14em;display:block;white-space:nowrap}
+.brand small{font:600 .68rem/1 var(--body);letter-spacing:.32em;color:var(--gold)}
+.navlinks{display:flex;gap:1.75rem;list-style:none;margin:0;padding:0}
+.navlinks a{color:var(--muted);text-decoration:none;font-weight:600;font-size:.95rem;transition:color .2s}
+.navlinks a:hover{color:var(--text)}
+@media (max-width:900px){.navlinks{display:none}}
+@media (max-width:440px){header.nav .btn{padding:.65rem 1rem;font-size:.85rem}.brand small{display:none}}
+
+.hero{padding:4rem 0 5rem;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:3rem;align-items:center}
+@media (max-width:940px){.hero-grid{grid-template-columns:1fr}}
+.ledge{display:flex;align-items:flex-end;gap:.75rem;min-height:5.4rem;margin-bottom:.4rem}
+.pill{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem .85rem;border-radius:999px;border:1px solid var(--line2);background:rgba(var(--ink-rgb),.03);font-size:.85rem;color:var(--muted);white-space:nowrap;margin-bottom:.3rem}
+.pill .live{width:.5rem;height:.5rem;border-radius:50%;background:var(--mint);animation:ping 1.8s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(94,230,168,.6)}70%{box-shadow:0 0 0 8px rgba(94,230,168,0)}}
+.hero h1{font-size:clamp(2.7rem,6.6vw,5rem);font-weight:800}
+.hero .lede{margin-top:1.4rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.note-line{margin-top:2rem;padding-top:1.4rem;border-top:1px solid var(--line);color:var(--dim);font-size:.95rem}
+.stats{display:flex;flex-wrap:wrap;gap:2.25rem;margin-top:2.5rem;padding-top:1.75rem;border-top:1px solid var(--line)}
+.stats b{display:block;font:700 1.5rem/1.1 var(--display)}
+.stats span{color:var(--dim);font-size:.85rem}
+
+.runner{position:relative;width:clamp(116px,12vw,148px);flex:none;cursor:pointer;background:none;border:none;padding:0}
+.runner svg{display:block;width:100%;overflow:visible}
+.runner .leg{transform-box:fill-box;transform-origin:top center}
+.runner.running .leg.a{animation:step .22s infinite alternate ease-in-out}
+.runner.running .leg.b{animation:step .22s infinite alternate-reverse ease-in-out}
+.runner.running .bodyg{animation:bob .22s infinite alternate}
+.runner .tail{transform-box:fill-box;transform-origin:right center;animation:wag 1.8s infinite ease-in-out}
+.runner .arm{transform-box:fill-box;transform-origin:left center;transition:transform .18s}
+.runner.throw .arm{transform:rotate(-70deg)}
+.runner.throw .bodyg{animation:hop .45s ease-out}
+.runner .visor{filter:drop-shadow(0 0 6px rgba(110,231,242,.9))}
+.runner .scan{animation:scan 2.4s ease-in-out infinite}
+@keyframes step{from{transform:rotate(22deg)}to{transform:rotate(-22deg)}}
+@keyframes bob{to{transform:translateY(-3px)}}
+@keyframes wag{50%{transform:rotate(-9deg)}}
+@keyframes hop{40%{transform:translateY(-10px)}}
+@keyframes scan{0%,100%{transform:translateX(0)}50%{transform:translateX(18px)}}
+.bubble{position:absolute;bottom:100%;right:0;margin-bottom:.3rem;background:var(--card2);border:1px solid var(--gold);color:var(--text);font:600 .82rem var(--body);padding:.45rem .75rem;border-radius:12px 12px 3px 12px;white-space:nowrap;opacity:0;transform:translateY(6px);transition:all .25s;pointer-events:none;z-index:3}
+.bubble.show{opacity:1;transform:none}
+
+.box-fly{position:absolute;left:0;top:0;width:96px;height:64px;z-index:60;pointer-events:none;border-radius:8px;overflow:hidden;background:#2A1512;border:1px solid rgba(255,255,255,.25);box-shadow:0 0 24px rgba(var(--acc),.75);display:flex;flex-direction:column}
+.box-fly .fb{height:10px;background:#141824;display:flex;gap:3px;align-items:center;padding:0 4px}
+.box-fly .fb i{width:4px;height:4px;border-radius:50%;background:#F26D6D}.box-fly .fb i:nth-child(2){background:#F2C14E}.box-fly .fb i:nth-child(3){background:#5EE6A8}
+.box-fly .fc{flex:1;display:flex;gap:5px;padding:5px}
+.box-fly .fm{flex:1.4;display:flex;flex-direction:column;gap:3px}
+.box-fly .fm b{height:7px;width:80%;border-radius:2px;background:#F4B740}
+.box-fly .fm i{height:3px;border-radius:2px;background:rgba(255,241,226,.45)}
+.box-fly .fs{flex:1;border-radius:3px;background:rgba(255,255,255,.1);display:flex;flex-direction:column;gap:3px;padding:3px}
+.box-fly .fs i{height:3px;border-radius:2px;background:rgba(255,255,255,.35)}
+.box-fly .fs u{margin-top:auto;height:6px;border-radius:2px;background:#E0473B}
+.spark{position:absolute;width:7px;height:7px;border-radius:50%;z-index:60;pointer-events:none}
+.confetti{position:fixed;top:-12px;width:9px;height:14px;z-index:90;pointer-events:none;border-radius:2px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+
+.stage{position:relative;padding:1.5rem 0 2.5rem}
+.stage::before{content:"";position:absolute;inset:-10% -5%;background:radial-gradient(closest-side,rgba(var(--acc),.25),transparent 70%);pointer-events:none}
+.browser{position:relative;border-radius:18px;background:#1a1f2e;border:1px solid var(--line2);box-shadow:0 40px 90px -30px rgba(0,0,0,.9);overflow:hidden;transition:opacity .6s,transform .7s cubic-bezier(.2,.9,.25,1.2),filter .6s}
+.js .browser.packed{opacity:0;transform:scale(.6) rotate(-4deg);filter:blur(8px)}
+.bar{display:flex;align-items:center;gap:.4rem;padding:.6rem .8rem;background:#141824;border-bottom:1px solid var(--line)}
+.bar i{width:.6rem;height:.6rem;border-radius:50%}
+.bar i:nth-child(1){background:#F26D6D}.bar i:nth-child(2){background:#F2C14E}.bar i:nth-child(3){background:#5EE6A8}
+.bar span{flex:1;margin-left:.6rem;text-align:center;font-size:.75rem;color:var(--muted);background:#0E121C;border-radius:8px;padding:.25rem .6rem}
+.mini{background:radial-gradient(120% 90% at 85% 0%,#5A2A1E 0%,#2A1512 55%,#1C0F0D);color:#FFF1E2;padding:1.1rem 1.25rem 1.3rem}
+.mini .top{display:flex;justify-content:space-between;align-items:center;font:700 .85rem var(--display)}
+.mini .top b{color:#F4B740;letter-spacing:.08em}
+.mini .top span{background:#E0473B;color:#fff;font-size:.7rem;padding:.3rem .7rem;border-radius:999px}
+.mini h4{font:800 clamp(1.4rem,3.2vw,2rem)/1 var(--display);margin:1rem 0 .3rem;text-transform:uppercase}
+.mini h4 em{font-style:normal;color:#F4B740}
+.mini .rows{margin-top:.9rem;display:grid;gap:.15rem;max-width:72%}
+.mini .rows div{display:flex;justify-content:space-between;font-size:.82rem;padding:.4rem 0;border-bottom:1px solid rgba(255,241,226,.12)}
+.mini .rows b{color:#F4B740;font-family:var(--display)}
+.mini .map{margin-top:.9rem;height:4.5rem;max-width:72%;border-radius:10px;background:
+  linear-gradient(90deg,transparent 49%,rgba(255,255,255,.12) 49% 51%,transparent 51%),
+  linear-gradient(0deg,transparent 45%,rgba(255,255,255,.12) 45% 48%,transparent 48%),
+  repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 22px),
+  repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 1px,transparent 1px 22px),#3A2320;position:relative}
+.mini .map::after{content:"";position:absolute;left:62%;top:30%;width:14px;height:14px;border-radius:50%;background:#F4B740;box-shadow:0 0 0 6px rgba(244,183,64,.25),0 0 18px #F4B740}
+.phone-mini{position:absolute;right:-.5rem;bottom:0;width:30%;min-width:7.5rem;aspect-ratio:9/18;border-radius:22px;background:#0B0E17;border:1px solid var(--line2);padding:7px;box-shadow:0 30px 60px -20px rgba(0,0,0,.9);transition:opacity .6s .25s,transform .7s .25s cubic-bezier(.2,.9,.25,1.2)}
+.js .stage.waiting .phone-mini{opacity:0;transform:translateY(30px)}
+.phone-mini .scr{height:100%;border-radius:16px;background:linear-gradient(170deg,#5A2A1E,#1C0F0D);padding:.7rem .55rem;display:flex;flex-direction:column;gap:.4rem;color:#FFF1E2;font-size:.6rem}
+.phone-mini .scr b{font:800 .85rem/1 var(--display);text-transform:uppercase}
+.phone-mini .scr i{font-style:normal;background:rgba(255,255,255,.08);border-radius:6px;padding:.3rem .4rem;display:flex;justify-content:space-between}
+.phone-mini .scr .dock{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:.25rem}
+.phone-mini .scr .dock span{background:#E0473B;border-radius:6px;text-align:center;padding:.3rem 0;font-weight:700}
+.phone-mini .scr .dock span:first-child{background:rgba(255,255,255,.12)}
+.chip{position:absolute;display:flex;align-items:center;gap:.45rem;color:var(--text);background:var(--chipbg);backdrop-filter:blur(8px);border:1px solid var(--line2);padding:.5rem .8rem;border-radius:14px;font-size:.8rem;font-weight:600;box-shadow:0 14px 30px -12px rgba(0,0,0,.8);animation:float 5s ease-in-out infinite;transition:opacity .5s,transform .5s}
+.chip.c1{left:-1rem;top:58%}
+.chip.c2{right:20%;top:-.2rem;animation-delay:-1.5s}
+.chip.c3{left:6%;bottom:.5rem;animation-delay:-3s}
+.chip .d{width:.5rem;height:.5rem;border-radius:50%;background:var(--mint)}
+.js .stage.waiting .chip{opacity:0;transform:scale(.6)}
+.stage .chip:nth-of-type(2){transition-delay:.15s}.stage .chip:nth-of-type(3){transition-delay:.3s}
+@keyframes float{50%{translate:0 -8px}}
+@media (max-width:560px){.chip.c1{left:0}.phone-mini{right:0}}
+
+.marquee{border-block:1px solid var(--line);padding:1.1rem 0;overflow:hidden;white-space:nowrap;background:rgba(var(--ink-rgb),.015)}
+.marquee div{display:inline-block;animation:tick 40s linear infinite;font:600 1.05rem var(--display);color:var(--muted)}
+.marquee span{color:var(--gold);margin:0 1.4rem}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+
+/* Street */
+.street{position:relative;margin-top:2.5rem;border-radius:26px;padding:4.5rem 1rem 3.4rem;overflow:hidden;background:linear-gradient(#0A0F1E,#141C33 74%,#070B16 74%);border:1px solid var(--line)}
+.street .moon{position:absolute;top:1.2rem;right:1.5rem;width:42px;height:42px;border-radius:50%;background:#F4EFD9;box-shadow:0 0 40px 8px rgba(244,239,217,.2)}
+.street .star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.6}
+.street .hint{position:absolute;top:1.3rem;left:1.25rem;margin:0;font-size:.92rem;color:#9AA6C2}
+.shops{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.4rem,2vw,1.25rem);max-width:56rem;margin:0 auto;align-items:end}
+.shop{min-width:0;position:relative;display:flex;flex-direction:column;align-items:center;gap:.5rem;padding:.75rem .5rem 0;border:none;border-radius:10px 10px 0 0;cursor:pointer;color:#F4F5F6;font:inherit;transition:transform .2s}
+.shop:hover{transform:translateY(-3px)}
+.shop:nth-child(1){background:#2B2240;height:12.5rem}.shop:nth-child(2){background:#1E2A4A;height:11rem}
+.shop:nth-child(3){background:#1C3340;height:13.5rem}.shop:nth-child(4){background:#33283A;height:11.75rem}
+.sign{font:700 clamp(.6rem,1.6vw,.9rem) var(--display);letter-spacing:.06em;padding:.2rem .45rem;border-radius:6px;background:rgba(0,0,0,.35);color:#6F7A96;transition:all .35s;white-space:nowrap;max-width:100%;overflow:hidden}
+.win{width:78%;flex:1;max-height:5.5rem;border-radius:6px;background:#11172A;border:3px solid rgba(0,0,0,.35);transition:all .45s;position:relative;overflow:hidden}
+.win::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 48%,rgba(0,0,0,.25) 48% 52%,transparent 52%)}
+.door{width:34%;height:3.2rem;background:#11172A;border-radius:5px 5px 0 0;transition:all .45s}
+.badge{position:absolute;top:-1.8rem;left:50%;transform:translate(-50%,6px);background:var(--gold);color:var(--gold-ink);font:700 .72rem var(--body);padding:.15rem .5rem;border-radius:999px;opacity:0;transition:all .35s;white-space:nowrap}
+.shop.lit .sign{color:var(--gold-ink);background:var(--gold);box-shadow:0 0 18px 2px rgba(var(--acc),.7)}
+.shop.lit .win{background:linear-gradient(#FFE8B0,#E8C26A);box-shadow:0 0 28px 6px rgba(var(--acc),.4)}
+.shop.lit .door{background:#FFE3A1}
+.shop.lit .badge{opacity:1;transform:translate(-50%,0)}
+.sidewalk{position:absolute;left:0;right:0;bottom:0;height:3.4rem;background:#070B16}
+.sidewalk::before{content:"";position:absolute;left:0;right:0;top:50%;height:3px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.25) 0 28px,transparent 28px 56px)}
+.walker{position:absolute;left:0;bottom:2.3rem;width:clamp(78px,9vw,120px);z-index:2;transition-property:transform;transition-timing-function:linear;cursor:pointer}
+.walker .flip{transition:transform .15s}
+.walker.left .flip{transform:scaleX(-1)}
+.walker .leg{transform-box:fill-box;transform-origin:top center}
+.walker.walking .leg.a{animation:step .26s infinite alternate ease-in-out}
+.walker.walking .leg.b{animation:step .26s infinite alternate-reverse ease-in-out}
+.walker.walking .bodyg{animation:bob .26s infinite alternate}
+.walker .tail{transform-box:fill-box;transform-origin:right center;animation:wag 1.8s infinite ease-in-out}
+.walker .visor{filter:drop-shadow(0 0 6px rgba(110,231,242,.9))}
+.walker.hop .bodyg{animation:hop .45s ease-out}
+.done-msg{position:absolute;bottom:.75rem;left:0;right:0;text-align:center;margin:0;font:700 .95rem var(--display);color:var(--gold);opacity:0;transition:opacity .4s;z-index:3;padding:0 .5rem}
+.done-msg.show{opacity:1}
+@media (max-width:640px){.street{padding:6rem .5rem 3.4rem}.sign{font-size:.56rem;padding:.15rem .3rem}.badge{font-size:.6rem;top:-1.6rem}}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin-top:3rem}
+.svc{position:relative;background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:22px;padding:1.6rem;overflow:hidden;transition:border-color .3s,transform .3s,opacity .8s}
+.svc::after{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--x,50%) var(--y,0%),rgba(var(--acc),.14),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.svc:hover{border-color:rgba(var(--acc),.4)}
+.svc:hover::after{opacity:1}
+.svc .ic{width:3rem;height:3rem;border-radius:14px;display:grid;place-items:center;background:rgba(var(--acc),.1);border:1px solid rgba(var(--acc),.25);margin-bottom:1.2rem}
+.svc .ic svg{width:1.5rem;height:1.5rem}
+.svc p{color:var(--muted);font-size:.97rem;margin:0}
+
+.ba-frame{position:relative;margin-top:3rem;border-radius:26px;padding:2px;overflow:hidden;box-shadow:0 40px 90px -40px rgba(var(--acc),.5)}
+.ba-frame::before{content:"";position:absolute;inset:-60%;background:conic-gradient(from 0deg,var(--gold),var(--violet),#1F6FEB,var(--cyan),var(--gold));animation:spinb 8s linear infinite}
+@keyframes spinb{to{transform:rotate(360deg)}}
+.ba{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:16/9;user-select:none;background:#fff}
+@media (max-width:700px){.ba{aspect-ratio:3/4.3}}
+.ba .layer{position:absolute;inset:0;overflow:hidden}
+.old{background:#E8E8E8;color:#000;font-family:"Times New Roman",Times,serif;filter:saturate(.6)}
+.old .ohead{background:linear-gradient(#9A9A9A,#6F6F6F);color:#FFFF00;text-align:center;padding:.6rem;font:bold clamp(1rem,2.6vw,1.6rem) "Comic Sans MS","Times New Roman",serif;text-shadow:2px 2px #000}
+.old .obody{padding:clamp(.6rem,2vw,1.2rem);display:grid;gap:.6rem}
+.old .uc{background:repeating-linear-gradient(45deg,#FFD700 0 14px,#000 14px 28px);color:#fff;text-align:center;font-weight:bold;padding:.25rem;font-size:.8rem;text-shadow:1px 1px #000}
+.old .broken{border:2px inset #aaa;background:#ccc;height:clamp(4rem,14vw,8rem);display:grid;place-items:center;color:#666;font-size:.8rem}
+.old a{color:#00C;font-size:.9rem}
+.old table{width:100%;border:2px outset #ccc;font-size:.8rem;border-collapse:separate}
+.old td{border:1px inset #ccc;padding:.2rem}
+.old small{color:#777;font-size:.65rem}
+.new{background:radial-gradient(120% 90% at 80% 0%,#5A2A1E 0%,#1E1210 60%);color:#FFF1E2;clip-path:inset(0 0 0 var(--pos,50%));font-family:var(--body)}
+.new .nnav{display:flex;justify-content:space-between;align-items:center;padding:clamp(.6rem,2vw,1.1rem) clamp(.8rem,2.5vw,1.6rem)}
+.new .nlogo{font:800 clamp(.9rem,2vw,1.15rem)/1 var(--display);color:#F4B740;letter-spacing:.06em}
+.new .norder{background:#E0473B;color:#fff;font:700 .8rem var(--body);padding:.4rem .9rem;border-radius:999px}
+.new .nh{padding:0 clamp(.8rem,2.5vw,1.6rem);font:800 clamp(1.5rem,4.6vw,3.2rem)/1 var(--display);text-transform:uppercase}
+.new .nh em{font-style:normal;color:#F4B740}
+.new .npills{display:flex;gap:.35rem;flex-wrap:wrap;margin:.8rem clamp(.8rem,2.5vw,1.6rem)}
+.new .npills span{font-size:.72rem;padding:.25rem .6rem;border-radius:999px;background:rgba(255,255,255,.08)}
+.new .npills .on{background:#173A26;color:#9EF0BE}
+.new .nmenu{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.45rem;padding:.3rem clamp(.8rem,2.5vw,1.6rem)}
+.new .nmenu div{background:rgba(255,255,255,.06);border-radius:12px;padding:.5rem .65rem;font-size:.82rem;display:flex;justify-content:space-between;gap:.4rem}
+.new .nmenu b{color:#F4B740;font:700 .85rem var(--display)}
+.new .ndock{position:absolute;left:clamp(.8rem,2.5vw,1.6rem);right:clamp(.8rem,2.5vw,1.6rem);bottom:3.2rem;display:flex;gap:.4rem}
+.new .ndock span{flex:1;text-align:center;font:700 .78rem var(--body);padding:.55rem .3rem;border-radius:10px;background:rgba(255,255,255,.08)}
+.new .ndock span.m{background:#E0473B}
+.ba-handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 16px 3px rgba(var(--acc),.9);pointer-events:none;z-index:2}
+.ba-handle::after{content:"⟷";position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--gold-ink);display:grid;place-items:center;font-size:1.2rem;font-weight:800;box-shadow:0 0 30px 6px rgba(var(--acc),.7)}
+.ba-labels{position:absolute;bottom:.8rem;left:.8rem;right:.8rem;display:flex;justify-content:space-between;z-index:2;pointer-events:none}
+.ba-labels span{background:rgba(0,0,0,.7);color:#fff;font:700 .78rem var(--body);padding:.3rem .8rem;border-radius:999px}
+.ba-labels span:last-child{background:var(--gold);color:var(--gold-ink)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:3;margin:0}
+.worth{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin-top:1.5rem}
+.worth div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.1rem 1.25rem}
+.worth .x{color:var(--bad);font-size:.92rem;margin:0 0 .35rem;text-decoration:line-through;text-decoration-color:rgba(245,154,154,.5)}
+.worth .y{margin:0;font-weight:700}
+.worth .y::before{content:"✓ ";color:var(--mint)}
+
+.project{display:grid;grid-template-columns:1.35fr 1fr;gap:3rem;align-items:center;margin-top:4.5rem}
+.project.flip{grid-template-columns:1fr 1.35fr}
+.project.flip .pframe{order:2}
+@media (max-width:900px){.project,.project.flip{grid-template-columns:1fr;gap:1.75rem}.project.flip .pframe{order:0}}
+.pframe{position:relative;display:block;width:100%;padding:0;border:1px solid var(--line2);border-radius:18px;overflow:hidden;background:#1a1f2e;cursor:pointer;text-align:left;font:inherit;color:inherit;box-shadow:0 40px 80px -40px rgba(0,0,0,.9);transition:transform .4s,box-shadow .4s,border-color .4s}
+.pframe:hover{transform:translateY(-6px);border-color:rgba(var(--acc),.5);box-shadow:0 50px 90px -40px rgba(var(--acc),.4)}
+.pframe .vp{position:relative;aspect-ratio:16/10;overflow:hidden;background:#11151f}
+.pframe iframe{position:absolute;left:0;top:0;width:1280px;height:800px;border:0;transform:scale(var(--s,.5));transform-origin:0 0;pointer-events:none}
+.pframe .open{position:absolute;right:1rem;bottom:1rem;background:var(--nav);color:var(--text);font:700 .82rem var(--body);padding:.5rem .9rem;border-radius:999px;border:1px solid var(--line2)}
+.ptag{display:inline-block;font-size:.78rem;font-weight:700;padding:.3rem .8rem;border-radius:999px;border:1px solid var(--line2);color:var(--muted);margin-bottom:1rem}
+.project h3{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;margin-bottom:.4rem}
+.project .kind{color:var(--gold);font-weight:700;margin-bottom:1rem}
+.project p.d{color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.25rem 0 1.75rem}
+.tags span{background:rgba(var(--ink-rgb),.05);border:1px solid var(--line);padding:.4rem .85rem;border-radius:999px;font-size:.85rem}
+
+.process{display:grid;grid-template-columns:1fr 1.15fr;gap:4rem}
+@media (max-width:900px){.process{grid-template-columns:1fr;gap:2rem}}
+.process .sticky{position:sticky;top:7rem;align-self:start}
+@media (max-width:900px){.process .sticky{position:static}}
+.process h2{font-size:clamp(2.4rem,5.5vw,4rem)}
+.steps{position:relative;list-style:none;margin:0;padding:0 0 0 3rem}
+.steps::before{content:"";position:absolute;left:.7rem;top:.6rem;bottom:.6rem;width:2px;background:var(--line2)}
+.steps .fill{position:absolute;left:.7rem;top:.6rem;width:2px;height:var(--p,0%);max-height:calc(100% - 1.2rem);background:linear-gradient(var(--gold2),var(--gold));box-shadow:0 0 12px var(--gold)}
+.steps li{position:relative;padding-bottom:3.5rem}
+.steps li:last-child{padding-bottom:0}
+.steps li::before{content:"";position:absolute;left:-2.75rem;top:.6rem;width:1.1rem;height:1.1rem;border-radius:50%;background:var(--bg);border:2px solid var(--line2);transition:all .4s}
+.steps li.on::before{border-color:var(--gold);background:var(--gold);box-shadow:0 0 0 6px rgba(var(--acc),.18)}
+.steps .n{font:800 clamp(2.8rem,6vw,4.2rem)/1 var(--display);color:transparent;-webkit-text-stroke:1.5px rgba(var(--ink-rgb),.25);transition:all .4s}
+.steps li.on .n{-webkit-text-stroke:0;background:linear-gradient(120deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text}
+.steps h3{font-size:clamp(1.4rem,3vw,1.9rem);margin:.5rem 0}
+.steps p{color:var(--muted);max-width:30rem;margin:0}
+
+.pgrid{display:grid;grid-template-columns:1.15fr 1fr;gap:1.25rem;margin-top:3rem}
+@media (max-width:900px){.pgrid{grid-template-columns:1fr}}
+.pcol{display:grid;gap:1.25rem}
+.plan{position:relative;border-radius:26px;padding:2.2rem;border:1px solid var(--line);background:var(--card);overflow:hidden}
+.plan.hero-plan{background:radial-gradient(100% 70% at 100% 0%,rgba(var(--acc),.18),transparent 60%),linear-gradient(180deg,var(--card2),var(--card));border-color:rgba(var(--acc),.35)}
+.plan .rec{display:inline-block;background:linear-gradient(135deg,var(--gold2),var(--gold));color:var(--gold-ink);font:800 .78rem var(--body);padding:.35rem .85rem;border-radius:999px;margin-bottom:1.25rem}
+.plan h3{font-size:1.6rem}
+.price{display:flex;align-items:flex-start;gap:.2rem;font:800 clamp(3.6rem,9vw,6rem)/1 var(--display);margin:1.25rem 0;letter-spacing:-.04em}
+.hero-plan .price{background:linear-gradient(120deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.price small{font-size:.35em;margin-top:.35em}
+.price em{font-style:normal;font-size:.26em;align-self:flex-end;margin-bottom:.6em;letter-spacing:0}
+.plan.small .price{font-size:clamp(3rem,7vw,4.2rem)}
+.plan ul{list-style:none;padding:0;margin:0 0 1.75rem;display:grid;gap:.6rem}
+.plan li{display:flex;gap:.7rem;color:var(--muted)}
+.plan li::before{content:"";flex:none;width:1rem;height:2px;background:var(--gold);margin-top:.8rem}
+.plan.care{background:linear-gradient(135deg,var(--gold2),var(--gold) 55%,var(--gold3));color:var(--gold-ink);border:none}
+.plan.care p{color:var(--gold-ink);opacity:.8;margin:.4rem 0 0}
+.plan.care .price{margin:.75rem 0 0}
+.addons{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem;color:var(--muted);font-size:.95rem}
+.addons span{border:1px dashed var(--line2);border-radius:999px;padding:.45rem .9rem}
+.addons b{color:var(--text)}
+
+.preview-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start}
+@media (max-width:900px){.preview-wrap{grid-template-columns:1fr}}
+.side ul{list-style:none;padding:0;margin:1.5rem 0;display:grid;gap:.75rem}
+.side li{display:flex;gap:.75rem;align-items:center;color:var(--muted)}
+.side li span{width:2rem;height:2rem;border-radius:10px;display:grid;place-items:center;background:rgba(var(--acc),.12);color:var(--gold);flex:none;font-size:.9rem;font-weight:700}
+.contact-list{display:grid;gap:.5rem;margin-top:1.5rem}
+.contact-list a{color:var(--text);text-decoration:none;font-weight:700}
+.contact-list a:hover{color:var(--gold)}
+form.card{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line2);border-radius:26px;padding:clamp(1.25rem,3vw,2rem);box-shadow:0 40px 80px -40px rgba(0,0,0,.9)}
+.field{display:grid;gap:.4rem;margin-bottom:1.1rem}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:560px){.row2{grid-template-columns:1fr;gap:0}}
+label.l{font:700 .88rem var(--body)}
+.field input,.field select,.field textarea{font:500 1rem var(--body);color:var(--text);background:rgba(var(--ink-rgb),.04);border:1px solid var(--line2);border-radius:14px;padding:.85rem 1rem;width:100%;transition:border-color .2s,box-shadow .2s}
+.field input::placeholder,.field textarea::placeholder{color:var(--dim)}
+.field textarea{min-height:6rem;resize:vertical}
+.field select option{background:var(--card);color:var(--text)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px rgba(var(--acc),.15)}
+.checks{display:grid;gap:.5rem;margin-bottom:1.1rem}
+.checks label{display:flex;gap:.7rem;align-items:center;background:rgba(var(--ink-rgb),.03);border:1px solid var(--line);border-radius:14px;padding:.7rem .9rem;cursor:pointer;font-size:.95rem}
+.checks label:has(input:checked){border-color:rgba(var(--acc),.6);background:rgba(var(--acc),.07)}
+.checks input{accent-color:var(--gold);width:1.1rem;height:1.1rem}
+.checks em{margin-left:auto;font-style:normal;color:var(--gold);font-weight:700;white-space:nowrap}
+.est{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:rgba(var(--ink-rgb),.04);border-radius:16px;padding:1rem 1.2rem;margin:1.25rem 0}
+.est b{font:800 2rem/1 var(--display)}
+.est small{display:block;color:var(--muted);font-size:.85rem}
+form .btn{width:100%;font-size:1.05rem;padding:1.05rem}
+.fine{color:var(--dim);font-size:.82rem;margin:.9rem 0 0;text-align:center}
+.done{display:none;text-align:center;padding:2rem 1rem}
+.done.show{display:block;animation:pop .5s cubic-bezier(.2,.9,.25,1.2)}
+@keyframes pop{from{opacity:0;transform:scale(.9)}}
+.done h3{font-size:1.7rem;margin:1rem 0 .5rem}
+.done p{color:var(--muted)}
+
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin-top:3rem;max-width:44rem}
+.member{display:flex;gap:1rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:1.25rem}
+.member .av{width:3.5rem;height:3.5rem;border-radius:16px;display:grid;place-items:center;font:800 1.4rem var(--display);color:var(--gold-ink);background:linear-gradient(135deg,var(--gold2),var(--gold))}
+.member:nth-child(2) .av{background:linear-gradient(135deg,#C8C0FF,var(--violet));color:#120d2e}
+.member h3{margin:0}
+.member p{margin:0;color:var(--muted);font-size:.95rem}
+
+.faq{max-width:50rem;margin-top:2.5rem}
+details{border-bottom:1px solid var(--line);padding:1.25rem 0}
+summary{cursor:pointer;font:600 1.15rem var(--display);list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;width:2rem;height:2rem;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line2);color:var(--gold);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:.8rem 0 0;color:var(--muted);max-width:42rem}
+
+.band{border-radius:32px;padding:clamp(2.5rem,6vw,4.5rem);text-align:center;background:radial-gradient(80% 120% at 50% 0%,rgba(var(--acc),.25),transparent 60%),linear-gradient(180deg,var(--card),var(--bg2));border:1px solid rgba(var(--acc),.3)}
+.band h2{max-width:20ch;margin:0 auto 1rem}
+.band .lede{margin:0 auto}
+
+footer{border-top:1px solid var(--line);margin-top:6rem;padding:4rem 0 2.5rem}
+.fgrid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:2rem}
+@media (max-width:800px){.fgrid{grid-template-columns:1fr 1fr}}
+.fgrid p{color:var(--muted);max-width:20rem;margin-top:1rem}
+.fgrid h4{font:700 .95rem var(--display);margin:0 0 1rem}
+.fgrid ul{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.fgrid ul a{color:var(--muted);text-decoration:none}
+.fgrid ul a:hover{color:var(--gold)}
+.legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--line);margin-top:3rem;padding-top:1.5rem;color:var(--dim);font-size:.88rem}
+
+dialog.preview{border:none;padding:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;color:var(--text)}
+dialog.preview::backdrop{background:rgba(4,6,14,.82);backdrop-filter:blur(8px)}
+.pv{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:1rem}
+.pv-top{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;justify-content:center;background:var(--card);border:1px solid var(--line2);padding:.5rem .55rem .5rem 1.1rem;border-radius:999px}
+.pv-top h3{margin:0;font-size:1rem}
+.pv-top a,.pv-top button{font:700 .85rem var(--body);border-radius:999px;padding:.45rem .9rem;cursor:pointer;text-decoration:none}
+.pv-top a{background:var(--gold);color:var(--gold-ink)}
+.pv-top button{background:transparent;color:var(--text);border:1px solid var(--line2)}
+.device{width:min(390px,100%);height:min(780px,calc(100vh - 7rem));border-radius:40px;padding:11px;background:#05070d;box-shadow:0 0 0 1px var(--line2),0 40px 100px -30px rgba(var(--acc),.5);animation:rise .45s cubic-bezier(.2,.8,.2,1)}
+.device iframe{width:100%;height:100%;border:0;border-radius:30px;background:#fff}
+@keyframes rise{from{opacity:0;transform:translateY(30px) scale(.96)}}
+@media (max-width:460px){.device{border-radius:0;padding:0;height:calc(100vh - 5.5rem)}.device iframe{border-radius:14px}}
+
+/* Chat assistant */
+.chat-btn{position:fixed;right:1.1rem;bottom:1.1rem;z-index:70;width:64px;height:64px;border-radius:20px;border:1px solid rgba(var(--acc),.5);background:linear-gradient(135deg,var(--card2),var(--card));cursor:pointer;display:grid;place-items:center;box-shadow:0 14px 34px -10px rgba(0,0,0,.8),0 0 0 6px rgba(var(--acc),.08);transition:transform .2s}
+.chat-btn:hover{transform:translateY(-3px)}
+.chat-btn svg{width:46px;height:46px}
+.chat-btn .dot{position:absolute;top:-4px;right:-4px;width:14px;height:14px;border-radius:50%;background:var(--mint);border:3px solid var(--bg)}
+.chat-tip{position:fixed;right:5.6rem;bottom:1.9rem;z-index:70;background:var(--card2);border:1px solid var(--line2);padding:.5rem .8rem;border-radius:12px;font-size:.88rem;font-weight:600;opacity:0;transform:translateX(8px);transition:all .3s;pointer-events:none}
+.chat-tip.show{opacity:1;transform:none}
+.chat{position:fixed;right:1.1rem;bottom:6rem;z-index:71;width:min(380px,calc(100vw - 2.2rem));height:min(560px,calc(100vh - 8rem));display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--line2);border-radius:22px;box-shadow:0 30px 80px -20px rgba(0,0,0,.9);overflow:hidden;opacity:0;transform:translateY(16px) scale(.97);pointer-events:none;transition:all .25s}
+.chat.open{opacity:1;transform:none;pointer-events:auto}
+.chat-head{display:flex;align-items:center;gap:.7rem;padding:.9rem 1rem;border-bottom:1px solid var(--line);background:var(--card)}
+.chat-head svg{width:36px;height:36px}
+.chat-head b{display:block;font:700 1rem var(--display)}
+.chat-head small{color:var(--mint);font-size:.78rem}
+.chat-head button{margin-left:auto;background:none;border:1px solid var(--line2);color:var(--text);border-radius:10px;width:2rem;height:2rem;cursor:pointer}
+.chat-log{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.6rem}
+.msg{max-width:85%;padding:.6rem .85rem;border-radius:16px;font-size:.94rem;line-height:1.5;white-space:pre-line}
+.msg.bot{background:var(--card2);color:var(--text);border-bottom-left-radius:4px}
+.msg.me{align-self:flex-end;background:var(--gold);color:var(--gold-ink);border-bottom-right-radius:4px;font-weight:600}
+.msg.typing{color:var(--muted)}
+.chips2{display:flex;flex-wrap:wrap;gap:.4rem;padding:0 1rem .7rem}
+.chips2 button{background:transparent;border:1px solid var(--line2);color:var(--text);font:600 .8rem var(--body);padding:.35rem .7rem;border-radius:999px;cursor:pointer}
+.chips2 button:hover{border-color:var(--gold);color:var(--gold2)}
+.chat-form{display:flex;gap:.5rem;padding:.75rem;border-top:1px solid var(--line)}
+.chat-form input{flex:1;font:500 .95rem var(--body);color:var(--text);background:rgba(var(--ink-rgb),.05);border:1px solid var(--line2);border-radius:12px;padding:.7rem .85rem}
+.chat-form input:focus{outline:none;border-color:var(--gold)}
+.chat-form button{background:var(--gold);color:var(--gold-ink);border:none;border-radius:12px;padding:0 1rem;font:800 .95rem var(--body);cursor:pointer}
+
+
+/* Mobile nav fit (kept last so it wins) */
+@media (max-width:440px){
+  header.nav .wrap{gap:.5rem}
+  header.nav .brand{gap:.5rem}
+  header.nav .brand .mark{width:2.1rem;height:2.1rem}
+  header.nav .brand b{font-size:.78rem;letter-spacing:.06em}
+  header.nav .btn{padding:.6rem .8rem;font-size:.8rem}
+  header.nav .theme-btn{height:2.3rem;padding:0 .4rem}
+  .theme-pop{position:fixed;left:1rem;right:1rem;top:4.8rem;width:auto}
+}
+@media (max-width:350px){header.nav .brand>span:last-child{display:none}}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="grain" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cube" viewBox="0 0 64 64">
+      <path d="M32 4 58 18 32 32 6 18Z" fill="#FFE3A1"/>
+      <path d="M6 18 32 32v28L6 46Z" fill="#E8C26A"/>
+      <path d="M58 18 32 32v28l26-14Z" fill="#B8862E"/>
+      <text x="45" y="44" text-anchor="middle" font-family="Sora,sans-serif" font-weight="800" font-size="10" fill="#1A1405">&lt;/&gt;</text>
+      <text x="19" y="41" text-anchor="middle" font-family="Sora,sans-serif" font-weight="800" font-size="11" style="fill:var(--gold-ink)">6</text>
+    </symbol>
+    <symbol id="rhead" viewBox="0 0 64 64">
+      <path d="M10 22 16 6 26 16Z M54 22 48 6 38 16Z" fill="#6B7487"/>
+      <ellipse cx="32" cy="36" rx="26" ry="22" fill="#A7AFBD"/>
+      <path d="M8 34Q20 24 32 32 44 24 56 34 48 44 32 40 16 44 8 34Z" fill="#1B2236"/>
+      <rect x="11" y="29" width="42" height="9" rx="4.5" fill="#6EE7F2"/>
+      <ellipse cx="32" cy="49" rx="10" ry="7" fill="#F1F3F7"/><ellipse cx="32" cy="46" rx="3.5" ry="2.5" fill="#1B2236"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Six Raccoon Studio, home">
+      <span class="mark"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#rhead"/></svg></span>
+      <span><b>SIX RACCOON</b><small>STUDIO</small></span>
+    </a>
+    <ul class="navlinks">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:.6rem">
+      <div class="theme-wrap">
+        <button class="theme-btn" id="themeBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="themePop"><span class="sw" aria-hidden="true"></span><span class="t">Theme</span><span class="sr">Change colour theme</span></button>
+        <div class="theme-pop" id="themePop">
+          <h4>Pick a colour theme</h4>
+          <p>See the site in different colours. We match your shop's brand colours too.</p>
+          <div class="theme-list" id="themeList">
+            <button type="button" data-t="midnight"><span class="sw" style="--sw-a:#E8C26A;--sw-b:#070B16"></span>Midnight</button>
+            <button type="button" data-t="drive"><span class="sw" style="--sw-a:#FFC72C;--sw-b:#C8102E"></span>Fast food</button>
+            <button type="button" data-t="ocean"><span class="sw" style="--sw-a:#3DDBC4;--sw-b:#04161C"></span>Ocean</button>
+            <button type="button" data-t="cafe"><span class="sw" style="--sw-a:#2F6B4F;--sw-b:#F5EFE4"></span>Café</button>
+            <button type="button" data-t="bakery"><span class="sw" style="--sw-a:#C2185B;--sw-b:#FCEFF2"></span>Bakery</button>
+            <button type="button" data-t="clean"><span class="sw" style="--sw-a:#2F5BFF;--sw-b:#F7F8FA"></span>Clean</button>
+          </div>
+        </div>
+      </div>
+      <a class="btn btn-gold" href="#preview"><span class="cta-long">Get a free preview</span><span class="cta-short">Free preview</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="ledge">
+        <span class="pill"><span class="live"></span>Toronto web studio</span>
+        <button class="runner" id="runner" type="button" aria-label="Six Raccoon mascot. Tap to throw another website.">
+          <span class="bubble" id="bubble" role="status" aria-live="polite"></span>
+          <svg viewBox="0 0 140 92" aria-hidden="true">
+            <g class="tail">
+              <path d="M6 40Q0 35 4 28 14 22 38 36 40 46 30 46 14 46 6 40Z" fill="#A7AFBD"/>
+              <path d="M9 29l5 13M17 26l5 15M26 29l4 15" stroke="#1B2236" stroke-width="4.5" stroke-linecap="round"/>
+            </g>
+            <g class="leg b"><rect x="42" y="54" width="8" height="24" rx="4" fill="#4B5568"/></g>
+            <g class="leg b"><rect x="76" y="54" width="8" height="24" rx="4" fill="#4B5568"/></g>
+            <g class="bodyg">
+              <path d="M34 50Q34 28 62 28 90 28 92 48 92 64 62 64 34 64 34 50Z" fill="#1E2A4A"/>
+              <path d="M40 60Q62 66 88 58" style="stroke:var(--gold)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <circle cx="58" cy="44" r="7.5" style="fill:var(--gold)"/>
+              <text x="58" y="48.5" text-anchor="middle" font-family="Sora,sans-serif" font-weight="800" font-size="11" style="fill:var(--gold-ink)">6</text>
+              <g class="arm"><rect x="80" y="42" width="22" height="8" rx="4" fill="#2A385E"/><circle cx="102" cy="46" r="4.5" fill="#A7AFBD"/></g>
+              <circle cx="104" cy="30" r="19" fill="#A7AFBD"/>
+              <path d="M92 16 95 0 106 13Z" fill="#6B7487"/>
+              <path d="M94 12 96 4 102 11Z" fill="#1B2236"/>
+              <path d="M86 28Q104 18 124 28 124 38 104 36 88 38 86 28Z" fill="#1B2236"/>
+              <g class="visor">
+                <rect x="96" y="23" width="28" height="9" rx="4.5" fill="#6EE7F2"/>
+                <rect class="scan" x="98" y="24.5" width="5" height="6" rx="2.5" fill="#fff" opacity=".85"/>
+              </g>
+              <ellipse cx="117" cy="40" rx="9" ry="6" fill="#F1F3F7"/>
+              <circle cx="125" cy="38" r="3.2" fill="#1B2236"/>
+              <path d="M88 26Q92 6 112 10" stroke="#2A385E" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <circle cx="89" cy="31" r="5.5" fill="#2A385E"/><circle cx="89" cy="31" r="2" fill="#6EE7F2"/>
+              <path d="M89 36Q96 46 108 45" stroke="#2A385E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <circle cx="109" cy="45" r="2.4" fill="#6EE7F2"/>
+            </g>
+            <g class="leg a"><rect x="48" y="54" width="8" height="24" rx="4" fill="#6B7487"/></g>
+            <g class="leg a"><rect x="82" y="54" width="8" height="24" rx="4" fill="#6B7487"/></g>
+          </svg>
+        </button>
+      </div>
+      <h1>Good websites for <span class="gold">Toronto's local shops.</span></h1>
+      <p class="lede">We work in Toronto kitchens and shops ourselves, so we know what owners need: your menu, your hours, a way to call you and a way to find you. We build that, and we'll show you a free preview of yours before you pay anything.</p>
+      <div class="cta">
+        <a class="btn btn-gold" href="#preview">Get a free preview →</a>
+        <a class="btn btn-ghost" href="#work">See our work</a>
+      </div>
+      <p class="note-line">Based in Scarborough. Websites from $300. Most previews ready in about a week.</p>
+    </div>
+
+    <div class="stage waiting" id="stage">
+      <div class="browser packed" id="browser">
+        <div class="bar"><i></i><i></i><i></i><span>Concept website</span></div>
+        <div class="mini">
+          <div class="top"><b>CORNER SHAWARMA</b><span>Order</span></div>
+          <h4>Shaved fresh.<br><em>Wrapped tight.</em></h4>
+          <div class="rows">
+            <div><span>Chicken wrap</span><b>$10.99</b></div>
+            <div><span>Beef plate</span><b>$17.49</b></div>
+            <div><span>Falafel wrap</span><b>$8.99</b></div>
+            <div><span>Garlic potatoes</span><b>$5.49</b></div>
+          </div>
+          <div class="map" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="phone-mini" aria-hidden="true">
+        <div class="scr"><b>Corner<br>Shawarma</b><i><span>Open now</span><span>●</span></i><i><span>Chicken wrap</span><span>$10.99</span></i><i><span>Beef plate</span><span>$17.49</span></i><div class="dock"><span>Call</span><span>Order</span></div></div>
+      </div>
+      <div class="chip c1"><span class="d"></span>Open now</div>
+      <div class="chip c2">⭐ 4.8 on Google</div>
+      <div class="chip c3">📍 One tap to directions</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div>Scarborough<span>✦</span>The Danforth<span>✦</span>Kensington<span>✦</span>Regent Park<span>✦</span>Leslieville<span>✦</span>Downtown<span>✦</span>North York<span>✦</span>Markham<span>✦</span>Your street<span>✦</span>Scarborough<span>✦</span>The Danforth<span>✦</span>Kensington<span>✦</span>Regent Park<span>✦</span>Leslieville<span>✦</span>Downtown<span>✦</span>North York<span>✦</span>Markham<span>✦</span>Your street<span>✦</span></div></div>
+
+
+<section style="padding-bottom:2rem">
+  <div class="wrap">
+    <div class="rv"><span class="eyebrow">Light up the block</span>
+    <h2>Every shop deserves to show up.</h2>
+    <p class="lede">Tap a shop and our raccoon will go put it online. Try getting the whole street lit.</p></div>
+    <div class="street rv" id="street">
+      <p class="hint" id="hint">👆 Tap a shop</p>
+      <div class="moon" aria-hidden="true"></div>
+      <div class="shops" id="shops">
+        <button class="shop" type="button" aria-pressed="false"><span class="badge">Online now</span><span class="sign">SHAWARMA</span><span class="win"></span><span class="door"></span></button>
+        <button class="shop" type="button" aria-pressed="false"><span class="badge">Online now</span><span class="sign">BARBER</span><span class="win"></span><span class="door"></span></button>
+        <button class="shop" type="button" aria-pressed="false"><span class="badge">Online now</span><span class="sign">CAFÉ</span><span class="win"></span><span class="door"></span></button>
+        <button class="shop" type="button" aria-pressed="false"><span class="badge">Online now</span><span class="sign">GROCERY</span><span class="win"></span><span class="door"></span></button>
+      </div>
+      <div class="sidewalk" aria-hidden="true"></div>
+      <div class="walker" id="walker" aria-hidden="true"><div class="flip"><svg viewBox="0 0 140 92" aria-hidden="true">
+            <g class="tail">
+              <path d="M6 40Q0 35 4 28 14 22 38 36 40 46 30 46 14 46 6 40Z" fill="#A7AFBD"/>
+              <path d="M9 29l5 13M17 26l5 15M26 29l4 15" stroke="#1B2236" stroke-width="4.5" stroke-linecap="round"/>
+            </g>
+            <g class="leg b"><rect x="42" y="54" width="8" height="24" rx="4" fill="#4B5568"/></g>
+            <g class="leg b"><rect x="76" y="54" width="8" height="24" rx="4" fill="#4B5568"/></g>
+            <g class="bodyg">
+              <path d="M34 50Q34 28 62 28 90 28 92 48 92 64 62 64 34 64 34 50Z" fill="#1E2A4A"/>
+              <path d="M40 60Q62 66 88 58" style="stroke:var(--gold)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <circle cx="58" cy="44" r="7.5" style="fill:var(--gold)"/>
+              <text x="58" y="48.5" text-anchor="middle" font-family="Sora,sans-serif" font-weight="800" font-size="11" style="fill:var(--gold-ink)">6</text>
+              
+              <circle cx="104" cy="30" r="19" fill="#A7AFBD"/>
+              <path d="M92 16 95 0 106 13Z" fill="#6B7487"/>
+              <path d="M94 12 96 4 102 11Z" fill="#1B2236"/>
+              <path d="M86 28Q104 18 124 28 124 38 104 36 88 38 86 28Z" fill="#1B2236"/>
+              <g class="visor">
+                <rect x="96" y="23" width="28" height="9" rx="4.5" fill="#6EE7F2"/>
+                <rect x="98" y="24.5" width="5" height="6" rx="2.5" fill="#fff" opacity=".85"/>
+              </g>
+              <ellipse cx="117" cy="40" rx="9" ry="6" fill="#F1F3F7"/>
+              <circle cx="125" cy="38" r="3.2" fill="#1B2236"/>
+              <path d="M88 26Q92 6 112 10" stroke="#2A385E" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <circle cx="89" cy="31" r="5.5" fill="#2A385E"/><circle cx="89" cy="31" r="2" fill="#6EE7F2"/>
+              <path d="M89 36Q96 46 108 45" stroke="#2A385E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <circle cx="109" cy="45" r="2.4" fill="#6EE7F2"/>
+            </g>
+            <g class="leg a"><rect x="48" y="54" width="8" height="24" rx="4" fill="#6B7487"/></g>
+            <g class="leg a"><rect x="82" y="54" width="8" height="24" rx="4" fill="#6B7487"/></g>
+          </svg></div></div>
+      <p class="done-msg" id="doneMsg" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="rv"><span class="eyebrow">What we do</span>
+    <h2>The stuff that actually gets you customers.</h2>
+    <p class="lede">No fancy extras you won't use. Just the things people look for before they walk in.</p></div>
+    <div class="svc-grid">
+      <div class="svc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" style="stroke:var(--gold)" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/></svg></div><h3>Website design</h3><p>Menu or services, prices, photos, hours and a tap-to-call button. Built for phones first, because that's where your customers are.</p></div>
+      <div class="svc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" style="stroke:var(--gold)" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h3>Google setup</h3><p>Correct hours, good photos, your website and phone number on Google Maps. It's how most people pick where to go.</p></div>
+      <div class="svc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" style="stroke:var(--gold)" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><h3>Ordering & booking</h3><p>Order buttons straight to your Uber Eats, DoorDash or Skip page, or a booking link for appointments. No new systems to learn.</p></div>
+      <div class="svc rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" style="stroke:var(--gold)" stroke-width="1.8" stroke-linecap="round"><path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v5h-5"/></svg></div><h3>Monthly care</h3><p>New prices, a new item, holiday hours. Text us and it's changed, usually within a day or two.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:2rem">
+  <div class="wrap">
+    <div class="rv"><span class="eyebrow">Before and after</span>
+    <h2>Old site vs. our version.</h2>
+    <p class="lede">A lot of shops on our street still have a site like the one on the left. Drag the handle to compare.</p></div>
+    <div class="ba-frame rv">
+      <div class="ba" id="ba">
+        <div class="layer old" aria-hidden="true">
+          <div class="ohead">~*~ Welcome To Corner Shawarma ~*~</div>
+          <div class="obody">
+            <div class="uc">UNDER CONSTRUCTION since 2014</div>
+            <div class="broken">[ image not found ]</div>
+            <a href="#" tabindex="-1">Click HERE to download our menu (PDF, 14 MB)</a>
+            <table><tr><td>Hours</td><td>please call</td></tr><tr><td>Phone</td><td>see facebook page</td></tr><tr><td>Address</td><td>Toronto</td></tr></table>
+            <small>Best viewed in Internet Explorer at 800x600 · Visitors: 000417</small>
+          </div>
+        </div>
+        <div class="layer new" aria-hidden="true">
+          <div class="nnav"><span class="nlogo">CORNER SHAWARMA</span><span class="norder">Order</span></div>
+          <div class="nh">Shaved fresh.<br><em>Wrapped tight.</em></div>
+          <div class="npills"><span class="on">● Open until 2 am</span><span>100% Halal</span><span>⭐ 4.8 on Google</span></div>
+          <div class="nmenu">
+            <div><span>Chicken wrap</span><b>$10.99</b></div>
+            <div><span>Beef plate</span><b>$17.49</b></div>
+            <div><span>Falafel wrap</span><b>$8.99</b></div>
+            <div><span>Garlic potatoes</span><b>$5.49</b></div>
+          </div>
+          <div class="ndock"><span>📞 Call</span><span>📍 Directions</span><span class="m">🛵 Order</span></div>
+        </div>
+        <div class="ba-handle" aria-hidden="true"></div>
+        <div class="ba-labels" aria-hidden="true"><span>Before</span><span>After</span></div>
+        <label class="sr" for="baRange">Compare the old website with the new one</label>
+        <input type="range" id="baRange" min="0" max="100" value="50">
+      </div>
+    </div>
+    <div class="worth">
+      <div class="rv"><p class="x">Menu is a 14 MB PDF</p><p class="y">Menu loads instantly with prices</p></div>
+      <div class="rv"><p class="x">"Please call" for hours</p><p class="y">Shows if you're open right now</p></div>
+      <div class="rv"><p class="x">Phone number hidden on Facebook</p><p class="y">One tap to call or get directions</p></div>
+      <div class="rv"><p class="x">No way to order</p><p class="y">Order button straight to Uber Eats</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="rv"><span class="eyebrow">Our work</span>
+    <h2>A few sites we've made.</h2>
+    <p class="lede">These are concept sites for made-up shops, so you can see our style. Tap one to use it like a customer would.</p></div>
+
+    <article class="project rv">
+      <button class="pframe" type="button" data-src="shawarma.html" data-name="Saffron Spit Shawarma" aria-label="Open the Saffron Spit Shawarma website">
+        <span class="bar"><i></i><i></i><i></i><span>saffronspit.ca</span></span>
+        <span class="vp" style="display:block"><iframe data-lazy="shawarma.html" title="Saffron Spit Shawarma preview" tabindex="-1" aria-hidden="true"></iframe></span>
+        <span class="open">Tap to open ↗</span>
+      </button>
+      <div>
+        <span class="ptag">Concept project</span>
+        <h3>Saffron Spit Shawarma</h3>
+        <p class="kind">Restaurant</p>
+        <p class="d">A bold, late-night menu site with live "open now" status and an order bar that's always one thumb away.</p>
+        <div class="tags"><span>Website design</span><span>Live hours</span><span>Delivery links</span><span>Google Maps</span></div>
+        <a class="btn btn-gold" href="#preview" data-type="Restaurant">Start a project like this</a>
+      </div>
+    </article>
+
+    <article class="project flip rv">
+      <button class="pframe" type="button" data-src="barber.html" data-name="Clean Line Barber Co." aria-label="Open the Clean Line Barber Co. website">
+        <span class="bar"><i></i><i></i><i></i><span>cleanlinebarber.ca</span></span>
+        <span class="vp" style="display:block"><iframe data-lazy="barber.html" title="Clean Line Barber Co. preview" tabindex="-1" aria-hidden="true"></iframe></span>
+        <span class="open">Tap to open ↗</span>
+      </button>
+      <div>
+        <span class="ptag">Concept project</span>
+        <h3>Clean Line Barber Co.</h3>
+        <p class="kind">Barber shop</p>
+        <p class="d">Clear prices, a live walk-in wait time, and booking in a few taps, so the chairs stay full.</p>
+        <div class="tags"><span>Website design</span><span>Booking</span><span>Price list</span><span>Google Maps</span></div>
+        <a class="btn btn-gold" href="#preview" data-type="Barber or salon">Start a project like this</a>
+      </div>
+    </article>
+
+    <article class="project rv">
+      <button class="pframe" type="button" data-src="bakery.html" data-name="Morning Crumb Bakery & Café" aria-label="Open the Morning Crumb Bakery and Café website">
+        <span class="bar"><i></i><i></i><i></i><span>morningcrumb.ca</span></span>
+        <span class="vp" style="display:block"><iframe data-lazy="bakery.html" title="Morning Crumb Bakery preview" tabindex="-1" aria-hidden="true"></iframe></span>
+        <span class="open">Tap to open ↗</span>
+      </button>
+      <div>
+        <span class="ptag">Concept project</span>
+        <h3>Morning Crumb Bakery & Café</h3>
+        <p class="kind">Café</p>
+        <p class="d">A warm, menu-first site with a fresh-batch countdown and a simple way to order a cake.</p>
+        <div class="tags"><span>Website design</span><span>Google Maps</span><span>Cake order form</span></div>
+        <a class="btn btn-gold" href="#preview" data-type="Café or bakery">Start a project like this</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap process">
+    <div class="sticky rv">
+      <span class="eyebrow">Process</span>
+      <h2>From hello to live in four steps.</h2>
+      <p class="lede">Most one-page sites are ready to preview within a week of getting your menu and photos.</p>
+    </div>
+    <div style="position:relative">
+      <ol class="steps" id="steps">
+        <li><div class="n">01</div><h3>Tell us about your business</h3><p>A ten-minute chat, in person or by phone. We learn what your customers ask most.</p></li>
+        <li><div class="n">02</div><h3>Get a free preview</h3><p>We send you a link to your new site. Check it on your phone and tell us what to change.</p></li>
+        <li><div class="n">03</div><h3>We go live</h3><p>We connect your domain, fix your Google listing, and hand you every login. It's all in your name.</p></li>
+        <li><div class="n">04</div><h3>We keep it fresh</h3><p>Text us when anything changes. We update it, usually within a day or two.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="rv"><span class="eyebrow">Pricing</span>
+    <h2>What it costs.</h2>
+    <p class="lede">Half when we start, half when your site goes live. All prices in CAD, paid by e-transfer.</p></div>
+    <div class="pgrid">
+      <div class="plan hero-plan rv">
+        <span class="rec">Recommended</span>
+        <h3>Multi-page website</h3>
+        <div class="price"><small>$</small>700</div>
+        <ul><li>About five pages</li><li>Photo gallery</li><li>Contact form</li><li>Mobile-first, custom layout</li></ul>
+        <a class="btn btn-gold" href="#preview" data-need="multi">Get a free preview</a>
+      </div>
+      <div class="pcol">
+        <div class="plan small rv">
+          <h3>One-page website</h3>
+          <p style="color:var(--muted);margin:.4rem 0 0">Menu or services, hours, map and contact in one clear page.</p>
+          <div class="price"><small>$</small>300</div>
+          <a class="btn btn-ghost" href="#preview" data-need="one">Choose one-page</a>
+        </div>
+        <div class="plan care rv">
+          <h3>Monthly care</h3>
+          <p>Text us any change and we update it.</p>
+          <div class="price"><small>$</small>30<em>/month</em></div>
+        </div>
+      </div>
+    </div>
+    <div class="addons rv"><span>Add-on: <b>Google listing setup +$75</b></span><span>Add-on: <b>AI chat assistant +$150</b> (+$25/mo)</span><span>Domain: <b>about $15–25/year</b>, in your name</span></div>
+  </div>
+</section>
+
+<section id="preview">
+  <div class="wrap preview-wrap">
+    <div class="side rv">
+      <span class="eyebrow">Free preview</span>
+      <h2>Want to see yours first?</h2>
+      <p class="lede">Send us your shop's name and a bit about it. We'll make a quick preview and text or email you the link. Free, no strings.</p>
+      <ul>
+        <li><span>1</span>No payment needed to get a preview</li>
+        <li><span>2</span>We reply within 1–2 days</li>
+        <li><span>3</span>You only pay if you like it</li>
+      </ul>
+      <p style="color:var(--muted);margin:0">Have these ready: business name, menu or services, photos, hours, address, phone number.</p>
+      <div class="contact-list">
+        <a href="tel:+14372385296">📞 437-238-5296</a>
+        <a href="tel:+14378491240">📞 437-849-1240</a>
+        <a href="mailto:sixraccoonstudio@gmail.com">✉️ sixraccoonstudio@gmail.com</a>
+      </div>
+    </div>
+
+    <form class="card rv" id="form" name="preview" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="preview">
+      <p class="sr"><label>Don't fill this out: <input name="bot-field" tabindex="-1"></label></p>
+      <input type="hidden" name="estimate" id="estField">
+      <div id="formBody">
+        <div class="row2">
+          <div class="field"><label class="l" for="f-biz">Business name</label><input id="f-biz" name="business" required placeholder="e.g. Maple & Spice Kitchen"></div>
+          <div class="field"><label class="l" for="f-name">Your name</label><input id="f-name" name="name" required placeholder="First name"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label class="l" for="f-contact">Phone or email</label><input id="f-contact" name="contact" required placeholder="So we can send your preview"></div>
+          <div class="field"><label class="l" for="f-type">Business type</label>
+            <select id="f-type" name="type"><option>Restaurant</option><option>Café or bakery</option><option>Barber or salon</option><option>Retail shop</option><option>Other service</option></select></div>
+        </div>
+        <div class="field"><label class="l" for="f-need">What do you need?</label>
+          <select id="f-need" name="need">
+            <option value="one" data-p="300">One-page website ($300)</option>
+            <option value="multi" data-p="700">Multi-page website ($700)</option>
+            <option value="google" data-p="75">Just Google listing setup ($75)</option>
+            <option value="unsure" data-p="0">Not sure yet</option>
+          </select></div>
+        <div class="checks">
+          <label><input type="checkbox" name="addon_google" value="yes" data-p="75">Google listing setup<em>+$75</em></label>
+          <label><input type="checkbox" name="addon_ai_chat" value="yes" data-p="150" data-m="25">AI chat assistant<em>+$150</em></label>
+          <label><input type="checkbox" name="addon_monthly_care" value="yes" data-m="30" checked>Monthly care<em>$30/mo</em></label>
+        </div>
+        <div class="field"><label class="l" for="f-about">Tell us a little about the business</label><textarea id="f-about" name="about" placeholder="What should the website help customers do?"></textarea></div>
+        <div class="est"><div>Estimated starting total<small id="estMonthly">+ $30 a month</small></div><b id="estTotal">$300</b></div>
+        <button class="btn btn-gold" type="submit" id="submitBtn">Request my free preview →</button>
+        <p class="fine">No payment here. We'll reply with your preview and a final price.</p>
+      </div>
+      <div class="done" id="done" role="status">
+        <svg viewBox="0 0 64 64" width="84" height="84" aria-hidden="true"><use href="#rhead"/></svg>
+        <h3>Got it! 🎉</h3>
+        <p>Thanks. We'll be in touch within 1–2 days with your free preview.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+<section id="faq" style="padding-top:2rem">
+  <div class="wrap">
+    <div class="rv"><span class="eyebrow">FAQ</span><h2>Questions we get a lot.</h2></div>
+    <div class="faq">
+      <details><summary>Do I own the website?</summary><p>Yes. The domain, the hosting account and your Google listing are all in your name. We get access to work on them, nothing more.</p></details>
+      <details><summary>I already have an old website. Can you redo it?</summary><p>Yes. We'll need the login for the account where your domain was bought. If nobody remembers it, we'll help you get it back.</p></details>
+      <details><summary>Can customers order online?</summary><p>Yes. We add an "Order online" button that opens your Uber Eats, DoorDash or Skip page, so orders come in the way you already handle them.</p></details>
+      <details><summary>Do I need to know anything about tech?</summary><p>No. You send us your menu, photos and hours. We do the rest.</p></details>
+      <details><summary>How do I pay?</summary><p>By e-transfer. Half when we start, half when your site goes live. Nothing until you've seen and liked your preview.</p></details>
+      <details><summary>How long does it take?</summary><p>Most one-page sites are ready to preview within a week of getting your menu and photos.</p></details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:2rem;padding-bottom:0">
+  <div class="wrap">
+    <div class="band rv">
+      <h2>Got a shop? Let's talk.</h2>
+      <p class="lede">Call, text, or fill out the form. If you don't like the preview, you don't pay. Simple.</p>
+      <div class="cta" style="justify-content:center"><a class="btn btn-gold" href="#preview">Get a free preview →</a><a class="btn btn-ghost" href="tel:+14372385296">Call 437-238-5296</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="#top"><span class="mark"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#rhead"/></svg></span><span><b>SIX RACCOON</b><small>STUDIO</small></span></a>
+        <p>A small Toronto web studio helping local businesses look better and work better online.</p>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="#services">Website design</a></li><li><a href="#services">Google setup</a></li><li><a href="#services">Ordering & booking</a></li><li><a href="#services">Maintenance</a></li></ul></div>
+      <div><h4>Businesses</h4><ul><li><a href="#work">Restaurants</a></li><li><a href="#work">Barbers</a></li><li><a href="#work">Cafés</a></li><li><a href="#preview">Retail & services</a></li></ul></div>
+      <div><h4>Start</h4><ul><li><a href="#pricing">Pricing</a></li><li><a href="#process">How it works</a></li><li><a href="#faq">FAQ</a></li><li><a href="#preview">Free preview</a></li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 Six Raccoon Studio. All rights reserved.</span><span>Toronto, Ontario</span></div>
+  </div>
+</footer>
+
+<dialog class="preview" id="pvDlg" aria-labelledby="pvName">
+  <div class="pv" id="pv">
+    <div class="pv-top"><h3 id="pvName">Site</h3><a id="pvOpen" href="#" target="_blank" rel="noopener">Open full site ↗</a><button type="button" id="pvClose">Close ✕</button></div>
+    <div class="device"><iframe id="pvFrame" title="Website preview"></iframe></div>
+  </div>
+</dialog>
+
+
+<button class="chat-btn" id="chatBtn" type="button" aria-label="Ask the raccoon a question" aria-expanded="false" aria-controls="chat">
+  <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#rhead"/></svg><span class="dot"></span>
+</button>
+<div class="chat-tip" id="chatTip">Questions? Ask me 👋</div>
+<div class="chat" id="chat" role="dialog" aria-label="Chat with Six Raccoon">
+  <div class="chat-head"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#rhead"/></svg><div><b>Ask the raccoon</b><small>● Usually answers right away</small></div><button type="button" id="chatClose" aria-label="Close chat">✕</button></div>
+  <div class="chat-log" id="chatLog" aria-live="polite"></div>
+  <div class="chips2" id="chatChips">
+    <button type="button">How much is a website?</button>
+    <button type="button">How long does it take?</button>
+    <button type="button">Do I own it?</button>
+    <button type="button">Can people order online?</button>
+  </div>
+  <form class="chat-form" id="chatForm"><label class="sr" for="chatIn">Your question</label><input id="chatIn" maxlength="400" autocomplete="off" placeholder="Ask anything about websites…"><button type="submit">Send</button></form>
+</div>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+
+  /* ---------- Intro: raccoon runs in and throws a website ---------- */
+  const runner = $('#runner'), browser = $('#browser'), stage = $('#stage'), bubble = $('#bubble');
+  let hideT, opened = false;
+  function say(t, ms){ bubble.textContent=t; bubble.classList.add('show'); clearTimeout(hideT); hideT=setTimeout(()=>bubble.classList.remove('show'), ms||2600); }
+  function openSite(){ opened = true; browser.classList.remove('packed'); stage.classList.remove('waiting'); }
+
+  function throwBox(onLand){
+    runner.classList.remove('throw'); void runner.offsetWidth; runner.classList.add('throw');
+    setTimeout(()=>runner.classList.remove('throw'), 450);
+    const r = runner.getBoundingClientRect(), b = browser.getBoundingClientRect();
+    const sx = r.right - 30 + scrollX, sy = r.top + 10 + scrollY;
+    const tx = b.left + b.width/2 - 48 + scrollX, ty = b.top + b.height/2 - 32 + scrollY;
+    const box = document.createElement('div'); box.className='box-fly';
+    box.innerHTML='<div class="fb"><i></i><i></i><i></i></div><div class="fc"><div class="fm"><b></b><i></i><i></i><i></i><i style="width:60%"></i></div><div class="fs"><i></i><i></i><i style="width:70%"></i><u></u></div></div>';
+    document.body.appendChild(box);
+    const dx = tx-sx, dy = ty-sy, h = Math.max(140, Math.abs(dx)*.35), frames=[];
+    for(let i=0;i<=24;i++){ const t=i/24;
+      frames.push({transform:`translate(${sx+dx*t}px,${sy+dy*t-h*4*t*(1-t)}px) rotate(${t*360}deg) scale(${1+.5*Math.sin(Math.PI*t)})`}); }
+    const anim = box.animate(frames,{duration:950,easing:'linear'});
+    anim.onfinish = () => { box.remove(); burst(tx+48, ty+32); onLand && onLand(); };
+  }
+  function burst(x,y){
+    const cs=getComputedStyle(document.documentElement), cols=[cs.getPropertyValue('--gold2'),cs.getPropertyValue('--gold'),'#6EE7F2',cs.getPropertyValue('--a1'),'#fff'];
+    for(let i=0;i<18;i++){
+      const s=document.createElement('span'); s.className='spark';
+      s.style.background=cols[i%cols.length]; s.style.left=x+'px'; s.style.top=y+'px';
+      document.body.appendChild(s);
+      const a=Math.random()*Math.PI*2, d=60+Math.random()*90;
+      s.animate([{transform:'translate(-50%,-50%) scale(1)',opacity:1},{transform:`translate(${Math.cos(a)*d}px,${Math.sin(a)*d}px) scale(0)`,opacity:0}],{duration:700+Math.random()*300,easing:'cubic-bezier(.2,.8,.2,1)'}).onfinish=()=>s.remove();
+    }
+  }
+  let started = false;
+  function intro(){
+    if(started) return; started = true;
+    if(reduce || !runner.animate){ openSite(); return; }
+    const start = -(runner.getBoundingClientRect().left + 160);
+    runner.classList.add('running');
+    const run = runner.animate([{transform:`translateX(${start}px)`},{transform:'translateX(0)'}],{duration:1100,easing:'cubic-bezier(.25,.8,.3,1)'});
+    run.onfinish = () => {
+      runner.classList.remove('running');
+      setTimeout(()=>throwBox(()=>{ openSite(); say('Website delivered 📦✨'); }), 250);
+    };
+  }
+  if(document.readyState === 'complete') setTimeout(intro, 300); else addEventListener('load', ()=>setTimeout(intro, 300));
+  setTimeout(()=>{ if(!opened && !started){ openSite(); } }, 4000);
+  setTimeout(()=>{ if(!opened) openSite(); }, 7000);
+
+  const lines=['Another one? Coming right up.','I deliver websites, not garbage.','Visor fully charged. Beep boop.','Toronto raccoon, certified web dev.'];
+  let clicks=0;
+  runner.addEventListener('click', ()=>{
+    clicks++;
+    if(clicks%5===0){ say('Secret raccoon party 🎉'); confetti(); return; }
+    if(reduce){ say(lines[clicks%lines.length]); return; }
+    throwBox(()=>{ browser.animate([{transform:'scale(1)'},{transform:'scale(1.04)'},{transform:'scale(1)'}],{duration:400}); say(lines[clicks%lines.length]); });
+  });
+  function confetti(){
+    if(reduce) return;
+    const cs=getComputedStyle(document.documentElement), cols=[cs.getPropertyValue('--gold2'),cs.getPropertyValue('--gold'),'#6EE7F2',cs.getPropertyValue('--a1'),'#5EE6A8'];
+    for(let i=0;i<80;i++){ const c=document.createElement('div'); c.className='confetti';
+      c.style.left=Math.random()*100+'vw'; c.style.background=cols[i%cols.length];
+      c.style.animationDuration=(1.8+Math.random()*1.8)+'s'; c.style.animationDelay=Math.random()*.4+'s';
+      document.body.appendChild(c); setTimeout(()=>c.remove(),4300); }
+  }
+
+
+  /* ---------- Street walker ---------- */
+  (function(){
+    const street=$('#street'), walker=$('#walker'), shops=$$('.shop'), doneMsg=$('#doneMsg');
+    for(let i=0;i<24;i++){ const st=document.createElement('span'); st.className='star'; st.style.left=Math.random()*100+'%'; st.style.top=(Math.random()*36+4)+'%'; street.appendChild(st); }
+    let x=0,current=0,busy=false,idle;
+    const tx=i=>shops[i].offsetLeft+shops[i].offsetWidth/2-walker.offsetWidth/2;
+    function place(i){ walker.style.transitionDuration='0s'; x=tx(i); current=i; walker.style.transform='translateX('+x+'px)'; }
+    function walkTo(i,then){
+      const nx=tx(i), dist=Math.abs(nx-x); current=i;
+      if(dist<2||reduce){ x=nx; walker.style.transitionDuration='0s'; walker.style.transform='translateX('+x+'px)'; then&&then(); return; }
+      walker.classList.toggle('left', nx<x); walker.classList.add('walking');
+      walker.style.transitionDuration=Math.max(.45,dist/180)+'s'; x=nx;
+      walker.style.transform='translateX('+x+'px)'; busy=true;
+      const done=e=>{ if(e.propertyName!=='transform') return; walker.removeEventListener('transitionend',done); walker.classList.remove('walking'); busy=false; then&&then(); };
+      walker.addEventListener('transitionend',done);
+    }
+    const hop=()=>{ walker.classList.remove('hop'); void walker.offsetWidth; walker.classList.add('hop'); };
+    shops.forEach((sh,i)=>sh.addEventListener('click',()=>{ reset(); walkTo(i,()=>{ const on=!sh.classList.contains('lit'); sh.classList.toggle('lit',on); sh.setAttribute('aria-pressed',String(on)); hop();
+      const all=shops.every(s=>s.classList.contains('lit')); doneMsg.textContent=all?'The whole block is online. That’s the job.':''; doneMsg.classList.toggle('show',all); if(all) confetti(); }); }));
+    function wander(){ if(busy||reduce) return; let n; do{ n=Math.floor(Math.random()*shops.length); }while(n===current); walkTo(n); }
+    function reset(){ clearInterval(idle); if(!reduce) idle=setInterval(wander,4800); }
+    place(0); reset(); addEventListener('resize',()=>place(current));
+  })();
+
+
+  /* ---------- Chat assistant ---------- */
+  (function(){
+    const btn=$('#chatBtn'), box=$('#chat'), log=$('#chatLog'), form=$('#chatForm'), input=$('#chatIn'), tip=$('#chatTip');
+    const history=[]; let greeted=false;
+    const add=(t,who)=>{ const m=document.createElement('div'); m.className='msg '+who; m.textContent=t; log.appendChild(m); log.scrollTop=log.scrollHeight; return m; };
+    function toggle(open){ box.classList.toggle('open',open); btn.setAttribute('aria-expanded',String(open)); tip.classList.remove('show');
+      if(open){ if(!greeted){ greeted=true; add("Hey! I'm the Six Raccoon. Ask me anything about getting a website for your shop: prices, how it works, domains, ordering, whatever.",'bot'); } setTimeout(()=>input.focus(),200); } }
+    btn.addEventListener('click',()=>toggle(!box.classList.contains('open')));
+    $('#chatClose').addEventListener('click',()=>toggle(false));
+    setTimeout(()=>{ if(!box.classList.contains('open')) tip.classList.add('show'); setTimeout(()=>tip.classList.remove('show'),5000); },6000);
+
+    const R=[
+      [/price|cost|how much|\$|cheap|expensive|charge/i,"A one-page site is $300. A multi-page site (about 5 pages) is $700. Google listing setup is $75, and monthly care is $30/month if you want us to handle changes.\n\nYou pay half when we start and half when it goes live. The preview is free."],
+      [/how long|time|fast|when.*ready|week/i,"Most one-page sites are ready to preview within about a week of getting your menu, photos and hours. Bigger sites take a bit longer."],
+      [/own|domain|name\b|\.ca|\.com|address/i,"You own everything. The domain (like yourshop.ca) is bought in your name, usually $15–25 a year, and the hosting account is yours too. We just get access to work on it."],
+      [/host|server|live|online|where.*(put|go)/i,"We host your site on a professional platform. For a normal shop site, hosting is usually free. The only yearly cost is your domain, about $15–25."],
+      [/order|deliver|uber|doordash|skip|payment.*online|sell/i,"Yes. We add an \"Order online\" button that goes straight to your Uber Eats, DoorDash or Skip page, so orders come in the way you already handle them. If you want your own ordering, we can set up Square Online for you."],
+      [/book|appointment|reserv/i,"Yes. We can add a booking button that links to your booking app, so customers can pick a time without calling."],
+      [/google|maps|listing|review|search/i,"We'll fix your Google listing: correct hours, good photos, your website and phone number. It's how most people decide where to go, so it's worth it ($75)."],
+      [/old|already have|existing|redo|redesign/i,"No problem. We'll need the login for the account where your domain was bought. If nobody remembers it, we'll help you get it back."],
+      [/pay|e-?transfer|deposit|card/i,"We take e-transfer. Half when we start, half when your site goes live. Nothing until you've seen your free preview."],
+      [/change|update|edit|menu.*new|maint|care/i,"With monthly care ($30/month), you just text us the change, new price, new item, holiday hours, and we update it, usually within a day or two."],
+      [/ai|chat ?bot|assistant|bot/i,"We can add a chat assistant like me to your site, so it answers customer questions 24/7 (hours, menu, halal, parking). It's $150 to set up plus $25/month."],
+      [/phone|mobile|iphone|android/i,"Every site we build is made for phones first, since that's how most customers will see it. Tap to call, tap for directions."],
+      [/need from me|what do (i|you) need|send you|photos|prepare/i,"Just your business name, menu or services with prices, a few photos, your hours, address and phone number. We handle the rest."],
+      [/preview|free|try|sample|example/i,"The preview is free. Fill in the form on this page or call us, and we'll send you a link to what your site could look like."],
+      [/where|area|location|scarborough|toronto|markham/i,"We're based in Scarborough and work with shops all over Toronto and the GTA."],
+      [/contact|call|text|email|talk|number/i,"You can call or text 437-238-5296 or 437-849-1240, or email sixraccoonstudio@gmail.com."],
+      [/how.*(website|site).*work|dns|what is a domain|hosting mean/i,"Quick version: your site's files live on a host (like renting a shop). The domain is the address people type. DNS connects the two. We set all of it up for you."],
+      [/^(hi|hey|hello|yo|salam|assalam)/i,"Hey! What kind of shop do you have? I can tell you what we'd build for it."],
+      [/thank|thx|ty\b/i,"Anytime! If you want a free preview, just fill in the form on this page."],
+    ];
+    function local(q){ for(const [re,a] of R) if(re.test(q)) return a;
+      return "Good question. That one's best answered by a human. Call or text 437-238-5296, or email sixraccoonstudio@gmail.com and we'll get back to you fast."; }
+    async function ask(q){
+      add(q,'me'); history.push({role:'user',content:q}); $('#chatChips').style.display='none';
+      const t=add('Typing…','bot typing');
+      let reply=null;
+      try{
+        const r=await fetch('/.netlify/functions/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history.slice(-10)})});
+        if(r.ok){ const d=await r.json(); reply=d.reply||null; }
+      }catch(e){}
+      if(!reply){ await new Promise(r=>setTimeout(r,450)); reply=local(q); }
+      t.remove(); add(reply,'bot'); history.push({role:'assistant',content:reply});
+    }
+    form.addEventListener('submit',e=>{ e.preventDefault(); const q=input.value.trim(); if(!q) return; input.value=''; ask(q); });
+    $$('#chatChips button').forEach(b=>b.addEventListener('click',()=>ask(b.textContent)));
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') toggle(false); });
+  })();
+
+
+  /* ---------- Theme picker ---------- */
+  (function(){
+    const root=document.documentElement, btn=$('#themeBtn'), pop=$('#themePop'), list=$$('#themeList button');
+    const names={midnight:'Midnight',drive:'Fast food',ocean:'Ocean',cafe:'Café',bakery:'Bakery',clean:'Clean'};
+    const cur=()=>root.getAttribute('data-theme')||'midnight';
+    const mark=()=>list.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.t===cur())));
+    function setTheme(t){
+      if(t==='midnight') root.removeAttribute('data-theme'); else root.setAttribute('data-theme',t);
+      try{ localStorage.setItem('sr-theme',t); }catch(e){}
+      mark();
+      if(typeof say==='function' && t!=='midnight') say(names[t]+' mode ✨',1800);
+    }
+    const toggle=open=>{ pop.classList.toggle('open',open); btn.setAttribute('aria-expanded',String(open)); };
+    btn.addEventListener('click',e=>{ e.stopPropagation(); toggle(!pop.classList.contains('open')); });
+    list.forEach(b=>b.addEventListener('click',()=>setTheme(b.dataset.t)));
+    document.addEventListener('click',e=>{ if(!pop.contains(e.target)&&e.target!==btn) toggle(false); });
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') toggle(false); });
+    mark();
+  })();
+
+  /* ---------- Reveal on scroll ---------- */
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    $$('.rv').forEach(el=>io.observe(el));
+  } else $$('.rv').forEach(el=>el.classList.add('in'));
+
+  $$('.svc').forEach(c=>c.addEventListener('pointermove',e=>{ const r=c.getBoundingClientRect(); c.style.setProperty('--x',(e.clientX-r.left)+'px'); c.style.setProperty('--y',(e.clientY-r.top)+'px'); }));
+
+  /* ---------- Before / after ---------- */
+  const ba=$('#ba'), range=$('#baRange'); let touched=false;
+  const setPos=v=>{ range.value=v; ba.style.setProperty('--pos',v+'%'); };
+  range.addEventListener('input',()=>{ touched=true; setPos(range.value); });
+  if(!reduce && 'IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>{ if(!es[0].isIntersecting) return; io.disconnect();
+      const keys=[[0,50],[900,86],[1900,14],[2800,50]], t0=performance.now();
+      (function step(t){ if(touched) return; const el=t-t0; let i=0; while(i<keys.length-1&&el>keys[i+1][0]) i++;
+        if(i>=keys.length-1){ setPos(50); return; }
+        const [ta,va]=keys[i],[tb,vb]=keys[i+1], k=(el-ta)/(tb-ta), e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+        setPos(Math.round(va+(vb-va)*e)); requestAnimationFrame(step); })(t0);
+    },{threshold:.5});
+    io.observe(ba);
+  }
+
+  /* ---------- Work: scaled live previews + modal ---------- */
+  const frames=$$('.pframe iframe');
+  const fit=()=>frames.forEach(f=>f.parentElement.style.setProperty('--s', f.parentElement.clientWidth/1280));
+  fit(); addEventListener('resize', fit);
+  if('ResizeObserver' in window){ const ro=new ResizeObserver(fit); frames.forEach(f=>ro.observe(f.parentElement)); }
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.src=e.target.dataset.lazy; io.unobserve(e.target);} }),{rootMargin:'400px'});
+    frames.forEach(f=>io.observe(f));
+  } else frames.forEach(f=>f.src=f.dataset.lazy);
+
+  const dlg=$('#pvDlg'), pvFrame=$('#pvFrame');
+  $$('.pframe').forEach(b=>b.addEventListener('click',()=>{
+    pvFrame.src=b.dataset.src; $('#pvName').textContent=b.dataset.name; $('#pvOpen').href=b.dataset.src;
+    if(dlg.showModal) dlg.showModal(); else window.open(b.dataset.src,'_blank');
+  }));
+  const closePv=()=>{ dlg.close(); pvFrame.src='about:blank'; };
+  $('#pvClose').addEventListener('click', closePv);
+  dlg.addEventListener('click', e=>{ if(e.target===dlg||e.target.id==='pv') closePv(); });
+  dlg.addEventListener('cancel', ()=>{ pvFrame.src='about:blank'; });
+
+  /* ---------- Process line fills as you scroll ---------- */
+  const steps=$('#steps'), items=$$('#steps li');
+  const fill=document.createElement('span'); fill.className='fill'; fill.setAttribute('aria-hidden','true'); steps.prepend(fill);
+  function prog(){
+    const r=steps.getBoundingClientRect(), mid=innerHeight*.6;
+    const p=Math.min(1,Math.max(0,(mid-r.top)/r.height));
+    fill.style.setProperty('--p',(p*100)+'%');
+    items.forEach(li=>li.classList.toggle('on', li.getBoundingClientRect().top < mid));
+  }
+  addEventListener('scroll', prog, {passive:true}); prog();
+
+  /* ---------- Form: estimate, prefill, submit ---------- */
+  const form=$('#form'), need=$('#f-need'), type=$('#f-type');
+  function calc(){
+    let total=Number(need.selectedOptions[0].dataset.p), monthly=0;
+    $$('.checks input').forEach(c=>{ if(c.checked){ total+=Number(c.dataset.p||0); monthly+=Number(c.dataset.m||0); } });
+    $('#estTotal').textContent='$'+total.toLocaleString();
+    $('#estMonthly').textContent= monthly ? '+ $'+monthly+' a month' : 'No monthly fee';
+    $('#estField').value='$'+total+(monthly?' + $'+monthly+'/mo':'');
+  }
+  form.addEventListener('change', calc); calc();
+  $$('a[data-need]').forEach(a=>a.addEventListener('click',()=>{ need.value=a.dataset.need; calc(); }));
+  $$('a[data-type]').forEach(a=>a.addEventListener('click',()=>{ type.value=a.dataset.type; }));
+
+  form.addEventListener('submit', async e=>{
+    e.preventDefault();
+    const btn=$('#submitBtn'); btn.disabled=true; btn.textContent='Sending…';
+    const data=new FormData(form);
+    try{
+      const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()});
+      if(!r.ok) throw new Error(r.status);
+      $('#formBody').style.display='none'; $('#done').classList.add('show'); confetti();
+    }catch(err){
+      const body=['Business: '+data.get('business'),'Name: '+data.get('name'),'Contact: '+data.get('contact'),'Type: '+data.get('type'),'Need: '+need.selectedOptions[0].text,'Estimate: '+data.get('estimate'),'About: '+(data.get('about')||'')].join('\n');
+      location.href='mailto:sixraccoonstudio@gmail.com?subject='+encodeURIComponent('Free preview request: '+data.get('business'))+'&body='+encodeURIComponent(body);
+      btn.disabled=false; btn.textContent='Request my free preview →';
+    }
+  });
+})();
+</script>
+</body>
+</html>
